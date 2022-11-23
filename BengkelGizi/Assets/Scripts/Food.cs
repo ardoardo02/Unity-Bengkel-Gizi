@@ -4,26 +4,19 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    enum Nutrition
-    {
-        Karbohidrat,
-        Protein,
-        Serat,
-        Mineral,
-        Kalsium
-    }
-
     [SerializeField] FoodTray foodTray;
 
     [Header("Food Property")]
     [SerializeField] string foodName;
-    [SerializeField] Nutrition nutrition;
-    [SerializeField] int value = 1;
+    [SerializeField] Nutrition nutritionValue;
+    [SerializeField] int foodValue = 1;
 
     Color originalColor;
     Renderer render;
 
     public string FoodName { get => foodName; }
+    public Nutrition NutritionValue { get => nutritionValue; }
+    public int FoodValue { get => foodValue; }
 
     private void Start()
     {
@@ -36,7 +29,6 @@ public class Food : MonoBehaviour
     {
         render.material.color = originalColor;
         foodTray.AddFood(this);
-        Debug.Log(nutrition);
     }
 
     private void OnMouseEnter()
