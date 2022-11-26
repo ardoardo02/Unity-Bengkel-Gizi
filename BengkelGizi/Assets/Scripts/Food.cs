@@ -4,40 +4,38 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
+    // [SerializeField] AudioManager audioManager;
     [SerializeField] FoodTray foodTray;
+    [SerializeField] Renderer foodRenderer;
+    [SerializeField] Renderer plateRenderer;
 
     [Header("Food Property")]
-    [SerializeField] string foodName;
+    // [SerializeField] string foodName;
     [SerializeField] Nutrition nutritionValue;
     [SerializeField] int foodValue = 1;
 
-    Color originalColor;
-    Renderer render;
-
-    public string FoodName { get => foodName; }
+    // public string FoodName { get => foodName; }
     public Nutrition NutritionValue { get => nutritionValue; }
     public int FoodValue { get => foodValue; }
 
-    private void Start()
-    {
-        foodName = gameObject.name;
-        render = GetComponent<Renderer>();
-        originalColor = render.material.color;
-    }
-
     private void OnMouseDown()
     {
-        render.material.color = originalColor;
-        foodTray.AddFood(this);
+        foodRenderer.material.color = Color.white;
+        plateRenderer.material.color = Color.white;
+        // audioManager.PlayClickFoodSFX();
+
+        foodTray.AddFood(this, transform.GetChild(0));
     }
 
     private void OnMouseEnter()
     {
-        render.material.color = Color.green;
+        foodRenderer.material.color = Color.gray;
+        plateRenderer.material.color = Color.gray;
     }
 
     private void OnMouseExit()
     {
-        render.material.color = originalColor;
+        foodRenderer.material.color = Color.white;
+        plateRenderer.material.color = Color.white;
     }
 }

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FoodTray : MonoBehaviour
 {
-    [SerializeField] Transform foodsParent;
+    [SerializeField] AudioManager audioManager;
     [SerializeField] Transform foodsPlace;
+    [SerializeField] TMP_Text nutritionText;
 
     Dictionary<Nutrition, int> plateValue = new Dictionary<Nutrition, int>(5){
         {Nutrition.Karbohidrat, 0},
@@ -16,25 +18,39 @@ public class FoodTray : MonoBehaviour
     };
 
     int karbo, protein_serat, mineral_kalsium = 0;
+    bool freePlate = true;
     Transform placePoint;
 
     public List<Food> Foods = new List<Food>();
 
-    public void AddFood(Food food)
+    public void AddFood(Food food, Transform foodRender)
     {
-        if (Foods.Contains(food) || Foods.Count >= 5)
+        if (Foods.Count >= 6)
+        {
+            audioManager.PlayPlateFullSFX();
             return;
+        }
 
         if (IsPlateFull(food.NutritionValue))
+        {
+            audioManager.PlayPlateFullSFX();
             return;
+        }
 
-        // var render = food.GetComponent<SpriteRenderer>();
-        // transform.GetChild(Foods.Count).GetComponent<SpriteRenderer>().sprite = render.sprite;
+        audioManager.PlayClickFoodSFX();
 
         // Ngisi nilai makanan yang ada di piring
-        plateValue[food.NutritionValue] += food.FoodValue;
+        UpdateNutrition(food.NutritionValue, food.FoodValue);
 
-        if (food.NutritionValue == Nutrition.Karbohidrat)
+        if (((karbo == 1 && food.NutritionValue == Nutrition.Karbohidrat)
+                || (protein_serat == 2 && (food.NutritionValue == Nutrition.Protein || food.NutritionValue == Nutrition.Serat))
+                || (mineral_kalsium == 2 && (food.NutritionValue == Nutrition.Mineral || food.NutritionValue == Nutrition.Kalsium)))
+            && freePlate)
+        {
+            placePoint = foodsPlace.GetChild(5);
+            freePlate = false;
+        }
+        else if (food.NutritionValue == Nutrition.Karbohidrat)
         {
             placePoint = foodsPlace.GetChild(0);
             karbo++;
@@ -51,12 +67,7 @@ public class FoodTray : MonoBehaviour
         }
 
         // spawn makanan di food tray
-        var newFood = Instantiate(food, placePoint.position, Quaternion.identity, foodsParent);
-        newFood.GetComponent<CircleCollider2D>().enabled = false;
-        // newFood.GetComponent<Food>().enabled = false;
-
-        // Destroy(newFood.GetComponent<CircleCollider2D>());
-        // Destroy(newFood.GetComponent<Food>());
+        placePoint.GetComponent<SpriteRenderer>().sprite = foodRender.GetComponent<SpriteRenderer>().sprite;
 
         // add makanan ke list
         Foods.Add(food);
@@ -68,19 +79,44 @@ public class FoodTray : MonoBehaviour
             return false;
 
         if (val == Nutrition.Karbohidrat && karbo == 1)
+        {
+            if (freePlate)
+                return false;
             return true;
+        }
 
         if ((val == Nutrition.Protein || val == Nutrition.Serat) && protein_serat == 2)
+        {
+            if (freePlate)
+                return false;
             return true;
+        }
 
         if ((val == Nutrition.Mineral || val == Nutrition.Kalsium) && mineral_kalsium == 2)
+        {
+            if (freePlate)
+                return false;
             return true;
+        }
 
         return false;
     }
 
+    private void UpdateNutrition(Nutrition nutrition, int val)
+    {
+        plateValue[nutrition] += val;
+
+        nutritionText.text = "Kb: " + plateValue[Nutrition.Karbohidrat] + " | " +
+            "Pr: " + plateValue[Nutrition.Protein] + " | " +
+            "Sr: " + plateValue[Nutrition.Serat] + " | " +
+            "Mn: " + plateValue[Nutrition.Mineral] + " | " +
+            "Kl: " + plateValue[Nutrition.Kalsium];
+    }
+
     public void ResetPlate()
     {
+        audioManager.PlayResetPlateSFX();
+
         plateValue[Nutrition.Karbohidrat] = 0;
         plateValue[Nutrition.Protein] = 0;
         plateValue[Nutrition.Serat] = 0;
@@ -90,12 +126,14 @@ public class FoodTray : MonoBehaviour
         karbo = 0;
         protein_serat = 0;
         mineral_kalsium = 0;
+        freePlate = true;
 
+        UpdateNutrition(nutrition: Nutrition.Karbohidrat, val: 0);
         Foods.Clear();
 
-        for (int i = 0; i < foodsParent.childCount; i++)
+        for (int i = 0; i < foodsPlace.childCount; i++)
         {
-            Destroy(foodsParent.GetChild(i).gameObject);
+            foodsPlace.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 }
