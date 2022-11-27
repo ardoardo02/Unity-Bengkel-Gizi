@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
+    public enum NumCustomer
+    {
+        Customer1,
+        Customer2,
+        Customer3,
+        Customer4,
+        Customer5,
+    }
+
+    [SerializeField] private NumCustomer numCust;
+
     public enum SpawnState
     {
         Spawning,
@@ -21,8 +32,8 @@ public class CustomerSpawner : MonoBehaviour
     private int nextWave = 0;
 
     [Header("Time Between Customer")]
-    [SerializeField] private float minTimeBC= 3;
-    [SerializeField] private float maxTimeBC= 6;
+    [SerializeField] private float minTimeBC = 3;
+    [SerializeField] private float maxTimeBC = 6;
     private float timeBetweenCust;
 
     [Header("Time Started Customer")]
@@ -60,9 +71,9 @@ public class CustomerSpawner : MonoBehaviour
             return;
         }
 
-        if (CustPatience <= 0 )
+        if (CustPatience <= 0)
         {
-            if(state != SpawnState.Spawning)
+            if (state != SpawnState.Spawning)
             {
                 SpawnCust(customers[nextWave]);
             }
@@ -78,7 +89,7 @@ public class CustomerSpawner : MonoBehaviour
         state = SpawnState.Counting;
         timeBetweenCust = Random.Range(minTimeBC, maxTimeBC);
         CustPatience = timeBetweenCust;
-        if(nextWave + 1 > customers.Length - 1)
+        if (nextWave + 1 > customers.Length - 1)
         {
             //GameManager.Instance.CustServe();
             Debug.Log("All Done");
@@ -93,10 +104,10 @@ public class CustomerSpawner : MonoBehaviour
     bool CustWaiting()
     {
         searchCountdown -= Time.deltaTime;
-        if (searchCountdown  <= 0f)
+        if (searchCountdown <= 0f)
         {
             searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("Customer") == null)
+            if (GameObject.FindGameObjectWithTag(numCust.ToString()) == null)
             {
                 return false;
             }
@@ -115,6 +126,7 @@ public class CustomerSpawner : MonoBehaviour
     void InstantiateCust(Transform _Cust)
     {
         Debug.Log("Instantitate Customer");
-        Instantiate(_Cust, transform.position, transform.rotation);
+        var Clone = Instantiate(_Cust, transform.position, transform.rotation);
+        Clone.gameObject.tag = numCust.ToString();
     }
 }
