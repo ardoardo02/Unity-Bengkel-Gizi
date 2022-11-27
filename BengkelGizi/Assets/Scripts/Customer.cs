@@ -124,6 +124,7 @@ public class Customer : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        gone();
         Debug.Log("Customer Left");
     }
 
@@ -148,5 +149,18 @@ public class Customer : MonoBehaviour
         }
 
         i_heart++;
+    }
+
+    private void gone()
+    {
+        Destroy(this.gameObject);
+        GameManager.Instance.CustGone();
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Customer Served");
+        Destroy(this.gameObject);
+        GameManager.Instance.CustServe();
     }
 }
