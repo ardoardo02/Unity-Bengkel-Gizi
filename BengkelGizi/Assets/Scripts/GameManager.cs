@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class GameManager : MonoBehaviour
     private int CustomerRemainingText;
     [SerializeField] private int CustomerCounter;
 
-    [SerializeField]private GameObject InfoBeforeStart_panel;
-    [SerializeField] private GameObject GameOver_Panel;
-    [SerializeField] private GameObject Victory_Panel;
+    [SerializeField]private GameObject InfoBeforeStartPanel;
+    [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject VictoryPanel;
+    [SerializeField] private GameObject PausePanel;
+    [SerializeField] private GameObject DimmerPause;
+
+    [SerializeField] private GameObject AreYourSureRestart;
+    [SerializeField] private GameObject AreYourSureMainMenu;
 
     [SerializeField] private int level;
     [SerializeField] private TMP_Text LevelNum_txt;
@@ -44,15 +50,17 @@ public class GameManager : MonoBehaviour
         CustomerRemainingText = CustomerTotal;
         CustRemaining_txt.SetText(CustomerRemainingText.ToString());
 
-        GameOver_Panel.SetActive(false);
-        Victory_Panel.SetActive(false);
+        PausePanel.SetActive(false);
+        GameOverPanel.SetActive(false);
+        VictoryPanel.SetActive(false);
         Time.timeScale = 0;
-        InfoBeforeStart_panel.SetActive(true);
+        InfoBeforeStartPanel.SetActive(true);
     }
 
     public void StartGame()
     {
-        InfoBeforeStart_panel.SetActive(false);
+        DimmerPause.SetActive(false);
+        InfoBeforeStartPanel.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -100,15 +108,62 @@ public class GameManager : MonoBehaviour
 
     private void Victory()
     {
-        Victory_Panel.SetActive(true);
+        VictoryPanel.SetActive(true);
         Debug.Log("Victory");
     }
 
 
     private void GameOver()
     {
-        GameOver_Panel.SetActive(true);
+        GameOverPanel.SetActive(true);
         Debug.Log("GameOver");
     }
-    
+
+
+    // Pause Panel
+    public void PauseGame()
+    {
+        DimmerPause.SetActive(true);
+        Time.timeScale = 0;
+        PausePanel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        PausePanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        AreYourSureRestart.SetActive(true);
+    }
+
+    public void Foodpedia()
+    {
+
+    }
+
+    public void Option()
+    {
+
+    }
+
+    public void MainMenu()
+    {
+        AreYourSureMainMenu.SetActive(true);
+    }
+
+    public void AreYouSure(string Action)
+    {
+        if(Action == "Restart")
+        {
+            var currentScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentScene);
+        }
+        if (Action == "MainMenu")
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
 }
