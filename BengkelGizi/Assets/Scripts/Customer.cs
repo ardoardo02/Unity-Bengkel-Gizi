@@ -22,7 +22,9 @@ public class Customer : MonoBehaviour
     [SerializeField, Range(1, 15)] int minNutritionValue = 1;
     [SerializeField, Range(1, 15)] int maxNutritionValue = 10;
 
+    FoodTray foodTray;
     Nutrition nutrition;
+    bool isWaitingFood = false;
     int totalOrder;
     int i_heart, j_heart;
     Coroutine waitForOrderRoutine = null;
@@ -35,6 +37,8 @@ public class Customer : MonoBehaviour
         {Nutrition.Mineral, 0},
         {Nutrition.Kalsium, 0}
     };
+
+    public Dictionary<Nutrition, int> CustOrder { get => custOrder; }
 
     private void Awake()
     {
@@ -53,6 +57,11 @@ public class Customer : MonoBehaviour
         UpdateOrder();
     }
 
+    public void SetFoodTray(FoodTray foodTray)
+    {
+        this.foodTray = foodTray;
+    }
+
     private void UpdateOrder()
     {
         totalOrder = Random.Range(minTotalOrder, maxTotalOrder + 1);
@@ -64,10 +73,10 @@ public class Customer : MonoBehaviour
             {
                 nutritionList.Add(nutrition);
 
-                custOrder[nutrition] = Random.Range(minNutritionValue, maxNutritionValue + 1);
+                CustOrder[nutrition] = Random.Range(minNutritionValue, maxNutritionValue + 1);
 
                 var text = orderTextParent.GetChild((int)nutrition);
-                text.GetComponent<TMP_Text>().text += custOrder[nutrition].ToString();
+                text.GetComponent<TMP_Text>().text += CustOrder[nutrition].ToString();
                 text.gameObject.SetActive(true);
 
                 totalOrder--;
@@ -95,6 +104,8 @@ public class Customer : MonoBehaviour
     IEnumerator WaitForOrder()
     {
         yield return new WaitForSeconds(1f);
+
+        isWaitingFood = true;
         hearts.gameObject.SetActive(true);
 
         for (i_heart = 0; i_heart < 5; i_heart++)
@@ -111,6 +122,7 @@ public class Customer : MonoBehaviour
 
     IEnumerator CustomerLeft()
     {
+        isWaitingFood = false;
         orderBox.SetActive(false);
 
         anim.SetBool("isTalking", true);
@@ -153,14 +165,20 @@ public class Customer : MonoBehaviour
 
     private void gone()
     {
-        Destroy(this.gameObject);
         GameManager.Instance.CustGone();
+        Destroy(this.gameObject);
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("Customer Served");
-        Destroy(this.gameObject);
-        GameManager.Instance.CustServe();
+        if (isWaitingFood)
+        {
+            foodTray.ServeFood(this);
+            // foodTray.TerimaPlate();
+        }
+
+        // Debug.Log("Customer Served");
+        // GameManager.Instance.CustServe();
+        // Destroy(this.gameObject);
     }
 }

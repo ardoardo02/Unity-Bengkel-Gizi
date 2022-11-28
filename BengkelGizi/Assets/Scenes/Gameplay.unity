@@ -965,10 +965,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474866274de68c41bfea9116dbf59a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodTray: {fileID: 1611198529}
   numCust: 3
   customers:
   - name: Customer
-    Cust: {fileID: 7989556844656676374, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
+    Cust: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
   minTimeBC: 3
   maxTimeBC: 6
   timeStartedCust: 10
@@ -1506,10 +1507,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474866274de68c41bfea9116dbf59a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodTray: {fileID: 1611198529}
   numCust: 4
   customers:
   - name: Customer
-    Cust: {fileID: 7989556844656676374, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
+    Cust: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
   minTimeBC: 3
   maxTimeBC: 6
   timeStartedCust: 8
@@ -1616,10 +1618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474866274de68c41bfea9116dbf59a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodTray: {fileID: 1611198529}
   numCust: 0
   customers:
   - name: Customer
-    Cust: {fileID: 7989556844656676374, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
+    Cust: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
   minTimeBC: 3
   maxTimeBC: 6
   timeStartedCust: 1
@@ -3404,10 +3407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474866274de68c41bfea9116dbf59a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodTray: {fileID: 1611198529}
   numCust: 2
   customers:
   - name: Customer
-    Cust: {fileID: 7989556844656676374, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
+    Cust: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
   minTimeBC: 3
   maxTimeBC: 6
   timeStartedCust: 5
@@ -3899,37 +3903,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5978804689354148199, guid: 4fc62d588d487474ca4d432dac542dd6, type: 3}
   m_PrefabInstance: {fileID: 303330915}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1531307836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1531307837}
-  m_Layer: 0
-  m_Name: Something
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1531307837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531307836}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.88669467, y: -0.5573227, z: -0.039437942}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1573842785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5978804689354148199, guid: e3a10dc61a7abab4097a6e0709af3885, type: 3}
@@ -3985,10 +3958,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474866274de68c41bfea9116dbf59a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodTray: {fileID: 1611198529}
   numCust: 1
   customers:
   - name: Customer
-    Cust: {fileID: 7989556844656676374, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
+    Cust: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
   minTimeBC: 3
   maxTimeBC: 6
   timeStartedCust: 3
@@ -4145,7 +4119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1600693031
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4223,6 +4197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611198530}
   - component: {fileID: 1611198529}
+  - component: {fileID: 1611198531}
   m_Layer: 0
   m_Name: FoodTray
   m_TagString: Untagged
@@ -4243,6 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1718770838}
+  foodtrayRender: {fileID: 1830230518}
   foodsPlace: {fileID: 448878345}
   nutritionText: {fileID: 1316202910}
   Foods: []
@@ -4264,6 +4240,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1611198531
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611198528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005908251, y: -1.0478106}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.412186, y: 2.5952554}
+  m_EdgeRadius: 0
 --- !u!1 &1629706392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,7 +4729,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1830230519}
   - component: {fileID: 1830230518}
-  - component: {fileID: 1830230517}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -4735,32 +4736,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1830230517
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830230516}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.64}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.89, y: 0.48}
-  m_EdgeRadius: 0
 --- !u!212 &1830230518
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
+    [SerializeField] FoodTray foodTray;
+
     public enum NumCustomer
     {
         Customer1,
@@ -23,12 +25,12 @@ public class CustomerSpawner : MonoBehaviour
     }
 
     [System.Serializable]
-    public class Customer
+    public class Customers
     {
         public string name;
-        public Transform Cust;
+        public Customer Cust;
     }
-    public Customer[] customers;
+    public Customers[] customers;
     private int nextWave = 0;
 
     [Header("Time Between Customer")]
@@ -55,7 +57,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (state == SpawnState.Waiting)
         {
-            Debug.Log(state);
+            // Debug.Log(state);
             if (CustWaiting() == false)
             {
                 CustServed();
@@ -115,7 +117,7 @@ public class CustomerSpawner : MonoBehaviour
         return true;
     }
 
-    public void SpawnCust(Customer _wave)
+    public void SpawnCust(Customers _wave)
     {
         GameManager.Instance.CustSpawn();
         state = SpawnState.Spawning;
@@ -123,10 +125,11 @@ public class CustomerSpawner : MonoBehaviour
         state = SpawnState.Waiting;
     }
 
-    void InstantiateCust(Transform _Cust)
+    void InstantiateCust(Customer _Cust)
     {
         Debug.Log("Instantitate Customer");
-        var Clone = Instantiate(_Cust, transform.position, transform.rotation);
+        var Clone = Instantiate(_Cust.transform, transform.position, transform.rotation);
         Clone.gameObject.tag = numCust.ToString();
+        Clone.gameObject.GetComponent<Customer>().SetFoodTray(foodTray);
     }
 }

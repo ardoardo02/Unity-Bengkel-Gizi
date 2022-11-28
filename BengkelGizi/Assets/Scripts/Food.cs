@@ -27,10 +27,16 @@ public class Food : MonoBehaviour
         foodTray.AddFood(this, transform.GetChild(0));
     }
 
+    private void OnMouseUp()
+    {
+        foodRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+        plateRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+    }
+
     private void OnMouseEnter()
     {
-        foodRenderer.material.color = Color.gray;
-        plateRenderer.material.color = Color.gray;
+        foodRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+        plateRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
     }
 
     private void OnMouseExit()
