@@ -5,7 +5,7 @@ using TMPro;
 
 public class Customer : MonoBehaviour
 {
-    [SerializeField] GameObject orderBox;
+    [SerializeField] SpriteRenderer orderBox;
     [SerializeField] Transform orderTextParent;
     [SerializeField] Transform hearts;
     [SerializeField] Animator anim;
@@ -27,6 +27,7 @@ public class Customer : MonoBehaviour
     bool isWaitingFood = false;
     int totalOrder;
     int i_heart, j_heart;
+    string serveFeedback;
     Coroutine waitForOrderRoutine = null;
     List<Nutrition> nutritionList = new List<Nutrition>();
 
@@ -42,7 +43,7 @@ public class Customer : MonoBehaviour
 
     private void Awake()
     {
-        orderBox.SetActive(false);
+        orderBox.gameObject.SetActive(false);
         hearts.gameObject.SetActive(false);
 
         for (int i = 0; i < orderTextParent.childCount; i++)
@@ -92,7 +93,7 @@ public class Customer : MonoBehaviour
         talk_SFX.Play();
         yield return new WaitForSeconds(0.5f);
 
-        orderBox.SetActive(true);
+        orderBox.gameObject.SetActive(true);
         yield return new WaitForSeconds(2.5f);
 
         anim.SetBool("isTalking", false);
@@ -123,7 +124,7 @@ public class Customer : MonoBehaviour
     IEnumerator CustomerLeft()
     {
         isWaitingFood = false;
-        orderBox.SetActive(false);
+        orderBox.gameObject.SetActive(false);
 
         anim.SetBool("isTalking", true);
         talk_SFX.pitch = -2.5f;
@@ -165,7 +166,8 @@ public class Customer : MonoBehaviour
 
     private void gone()
     {
-        GameManager.Instance.CustGone();
+        if (serveFeedback != "Correct")
+            GameManager.Instance.CustGone();
         Destroy(this.gameObject);
     }
 
@@ -173,12 +175,35 @@ public class Customer : MonoBehaviour
     {
         if (isWaitingFood)
         {
-            foodTray.ServeFood(this);
+            serveFeedback = foodTray.ServeFood(this);
+
+            if (serveFeedback == "Not Serving")
+                return;
+
+            if (serveFeedback == "Correct")
+            {
+                StopCoroutine(waitForOrderRoutine);
+                StartCoroutine(CustomerLeft());
+            }
+            else if (serveFeedback == "Wrong")
+            {
+                CutHeart();
+            }
             // foodTray.TerimaPlate();
         }
 
         // Debug.Log("Customer Served");
         // GameManager.Instance.CustServe();
         // Destroy(this.gameObject);
+    }
+
+    private void OnMouseEnter()
+    {
+        orderBox.material.color = new Color(0.8f, 0.8f, 0.8f);
+    }
+
+    private void OnMouseExit()
+    {
+        orderBox.material.color = Color.white;
     }
 }

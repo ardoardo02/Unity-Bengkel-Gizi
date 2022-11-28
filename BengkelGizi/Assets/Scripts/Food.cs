@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Food : MonoBehaviour
@@ -8,6 +9,7 @@ public class Food : MonoBehaviour
     [SerializeField] FoodTray foodTray;
     [SerializeField] Renderer foodRenderer;
     [SerializeField] Renderer plateRenderer;
+    [SerializeField] TMP_Text nutritionText;
 
     [Header("Food Property")]
     // [SerializeField] string foodName;
@@ -17,6 +19,11 @@ public class Food : MonoBehaviour
     // public string FoodName { get => foodName; }
     public Nutrition NutritionValue { get => nutritionValue; }
     public int FoodValue { get => foodValue; }
+
+    private void Start()
+    {
+        nutritionText.text = nutritionValue + ": " + foodValue.ToString();
+    }
 
     private void OnMouseDown()
     {

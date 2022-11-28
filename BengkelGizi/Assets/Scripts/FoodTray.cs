@@ -117,6 +117,8 @@ public class FoodTray : MonoBehaviour
 
     private void ResetPlate()
     {
+        isServing = false;
+        ChangeFoodtrayColor();
         audioManager.PlayResetPlateSFX();
 
         plateValue[Nutrition.Karbohidrat] = 0;
@@ -139,22 +141,22 @@ public class FoodTray : MonoBehaviour
         }
     }
 
-    public void ServeFood(Customer cus)
+    public string ServeFood(Customer cus)
     {
         if (!isServing)
-            return;
-
-        ResetPlate();
+            return "Not Serving";
 
         foreach (var (key, value) in cus.CustOrder)
         {
-            Debug.Log("(order) " + key + " " + value);
+            if (cus.CustOrder[key] != plateValue[key])
+            {
+                ResetPlate();
+                return "Wrong";
+            }
         }
 
-        foreach (var (key, value) in plateValue)
-        {
-            Debug.Log("(plate) " + key + ": " + value);
-        }
+        ResetPlate();
+        return "Correct";
     }
 
     private void ChangeFoodsColor(Color color, bool isMaterial)
@@ -168,10 +170,8 @@ public class FoodTray : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    private void ChangeFoodtrayColor()
     {
-        isServing = !isServing;
-
         if (isServing)
         {
             foodtrayRender.color = Color.gray;
@@ -182,9 +182,23 @@ public class FoodTray : MonoBehaviour
             foodtrayRender.color = Color.white;
             ChangeFoodsColor(Color.white, false);
         }
+    }
 
+    private void OnMouseDown()
+    {
         foodtrayRender.material.color = Color.white;
         ChangeFoodsColor(Color.white, true);
+
+        if (karbo == 0 && protein_serat == 0 && mineral_kalsium == 0)
+        {
+            // audioManager.PlayPlateEmptySFX();
+            return;
+        }
+
+        isServing = !isServing;
+        ChangeFoodtrayColor();
+        audioManager.PlayClickFoodtraySFX();
+
         // audioManager.PlayClickFoodSFX();
 
         // foodTray.AddFood(this, transform.GetChild(0));
