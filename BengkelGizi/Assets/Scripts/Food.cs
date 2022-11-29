@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Food : MonoBehaviour
@@ -8,6 +9,7 @@ public class Food : MonoBehaviour
     [SerializeField] FoodTray foodTray;
     [SerializeField] Renderer foodRenderer;
     [SerializeField] Renderer plateRenderer;
+    [SerializeField] TMP_Text nutritionText;
 
     [Header("Food Property")]
     // [SerializeField] string foodName;
@@ -18,6 +20,11 @@ public class Food : MonoBehaviour
     public Nutrition NutritionValue { get => nutritionValue; }
     public int FoodValue { get => foodValue; }
 
+    private void Start()
+    {
+        nutritionText.text = nutritionValue + ": " + foodValue.ToString();
+    }
+
     private void OnMouseDown()
     {
         foodRenderer.material.color = Color.white;
@@ -27,10 +34,16 @@ public class Food : MonoBehaviour
         foodTray.AddFood(this, transform.GetChild(0));
     }
 
+    private void OnMouseUp()
+    {
+        foodRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+        plateRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+    }
+
     private void OnMouseEnter()
     {
-        foodRenderer.material.color = Color.gray;
-        plateRenderer.material.color = Color.gray;
+        foodRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+        plateRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
     }
 
     private void OnMouseExit()

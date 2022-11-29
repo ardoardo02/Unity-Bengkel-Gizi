@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float heart =  5f;
+    [SerializeField] private float heart = 5f;
 
     [SerializeField] private int CustomerTotal;
     [SerializeField] private int CustomerRemaining;
     private int CustomerRemainingText;
     [SerializeField] private int CustomerCounter;
 
-    [SerializeField]private GameObject InfoBeforeStartPanel;
-    [SerializeField] private GameObject GameOverPanel;
-    [SerializeField] private GameObject VictoryPanel;
+    [SerializeField] private GameObject InfoBeforeStart_panel;
+    [SerializeField] private GameObject GameOver_Panel;
+    [SerializeField] private GameObject Victory_Panel;
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject DimmerPause;
 
@@ -51,24 +51,24 @@ public class GameManager : MonoBehaviour
         CustRemaining_txt.SetText(CustomerRemainingText.ToString());
 
         PausePanel.SetActive(false);
-        GameOverPanel.SetActive(false);
-        VictoryPanel.SetActive(false);
+        GameOver_Panel.SetActive(false);
+        Victory_Panel.SetActive(false);
         Time.timeScale = 0;
-        InfoBeforeStartPanel.SetActive(true);
+        InfoBeforeStart_panel.SetActive(true);
     }
 
     public void StartGame()
     {
         DimmerPause.SetActive(false);
-        InfoBeforeStartPanel.SetActive(false);
+        InfoBeforeStart_panel.SetActive(false);
         Time.timeScale = 1;
     }
 
     public void CustGone()
     {
-        Heart -= 1;
+        heart -= 1;
         CustomerRemaining -= 1;
-        if (Heart <= 0)
+        if (heart <= 0)
         {
             //Lose Condition
             Time.timeScale = 0;
@@ -108,14 +108,14 @@ public class GameManager : MonoBehaviour
 
     private void Victory()
     {
-        VictoryPanel.SetActive(true);
+        Victory_Panel.SetActive(true);
         Debug.Log("Victory");
     }
 
 
     private void GameOver()
     {
-        GameOverPanel.SetActive(true);
+        GameOver_Panel.SetActive(true);
         Debug.Log("GameOver");
     }
 
@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        DimmerPause.SetActive(false);
         PausePanel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -156,7 +157,7 @@ public class GameManager : MonoBehaviour
 
     public void AreYouSure(string Action)
     {
-        if(Action == "Restart")
+        if (Action == "Restart")
         {
             var currentScene = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentScene);

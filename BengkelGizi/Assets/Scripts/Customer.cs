@@ -5,7 +5,7 @@ using TMPro;
 
 public class Customer : MonoBehaviour
 {
-    [SerializeField] GameObject orderBox;
+    [SerializeField] SpriteRenderer orderBox;
     [SerializeField] Transform orderTextParent;
     [SerializeField] Transform hearts;
     [SerializeField] Animator anim;
@@ -22,9 +22,12 @@ public class Customer : MonoBehaviour
     [SerializeField, Range(1, 15)] int minNutritionValue = 1;
     [SerializeField, Range(1, 15)] int maxNutritionValue = 10;
 
+    FoodTray foodTray;
     Nutrition nutrition;
+    bool isWaitingFood = false;
     int totalOrder;
     int i_heart, j_heart;
+    string serveFeedback;
     Coroutine waitForOrderRoutine = null;
     List<Nutrition> nutritionList = new List<Nutrition>();
 
@@ -36,9 +39,11 @@ public class Customer : MonoBehaviour
         {Nutrition.Kalsium, 0}
     };
 
+    public Dictionary<Nutrition, int> CustOrder { get => custOrder; }
+
     private void Awake()
     {
-        orderBox.SetActive(false);
+        orderBox.gameObject.SetActive(false);
         hearts.gameObject.SetActive(false);
 
         for (int i = 0; i < orderTextParent.childCount; i++)
@@ -53,6 +58,11 @@ public class Customer : MonoBehaviour
         UpdateOrder();
     }
 
+    public void SetFoodTray(FoodTray foodTray)
+    {
+        this.foodTray = foodTray;
+    }
+
     private void UpdateOrder()
     {
         totalOrder = Random.Range(minTotalOrder, maxTotalOrder + 1);
@@ -64,10 +74,10 @@ public class Customer : MonoBehaviour
             {
                 nutritionList.Add(nutrition);
 
-                custOrder[nutrition] = Random.Range(minNutritionValue, maxNutritionValue + 1);
+                CustOrder[nutrition] = Random.Range(minNutritionValue, maxNutritionValue + 1);
 
                 var text = orderTextParent.GetChild((int)nutrition);
-                text.GetComponent<TMP_Text>().text += custOrder[nutrition].ToString();
+                text.GetComponent<TMP_Text>().text += CustOrder[nutrition].ToString();
                 text.gameObject.SetActive(true);
 
                 totalOrder--;
@@ -83,8 +93,8 @@ public class Customer : MonoBehaviour
         talk_SFX.Play();
         yield return new WaitForSeconds(0.5f);
 
-        orderBox.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        orderBox.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
 
         anim.SetBool("isTalking", false);
         talk_SFX.Stop();
@@ -95,10 +105,14 @@ public class Customer : MonoBehaviour
     IEnumerator WaitForOrder()
     {
         yield return new WaitForSeconds(1f);
+
+        isWaitingFood = true;
         hearts.gameObject.SetActive(true);
 
         for (i_heart = 0; i_heart < 5; i_heart++)
         {
+            if (i_heart > 2 && anim.GetInteger("isAngry") == 0)
+                anim.SetInteger("isAngry", 1);
             for (j_heart = 0; j_heart < 2; j_heart++)
             {
                 yield return new WaitForSeconds(customerPatience / 10f);
@@ -111,18 +125,25 @@ public class Customer : MonoBehaviour
 
     IEnumerator CustomerLeft()
     {
-        orderBox.SetActive(false);
+        isWaitingFood = false;
+        orderBox.gameObject.SetActive(false);
 
-        anim.SetBool("isTalking", true);
-        talk_SFX.pitch = -2.5f;
-        talk_SFX.Play();
+        if (serveFeedback != "Correct")
+        {
+            anim.SetInteger("isAngry", 2);
+            talk_SFX.pitch = -2.5f;
+            talk_SFX.Play();
+        }
 
         yield return new WaitForSeconds(2f);
 
-        anim.SetBool("isTalking", false);
-        talk_SFX.Stop();
+        if (serveFeedback != "Correct")
+        {
+            anim.SetInteger("isAngry", 1);
+            talk_SFX.Stop();
 
-        yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
+        }
 
         gone();
         Debug.Log("Customer Left");
@@ -149,18 +170,54 @@ public class Customer : MonoBehaviour
         }
 
         i_heart++;
+
+        if (i_heart > 2 && anim.GetInteger("isAngry") == 0)
+            anim.SetInteger("isAngry", 1);
     }
 
     private void gone()
     {
+        if (serveFeedback == "Correct")
+            GameManager.Instance.CustServe();
+        else
+            GameManager.Instance.CustGone();
+
         Destroy(this.gameObject);
-        GameManager.Instance.CustGone();
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("Customer Served");
-        Destroy(this.gameObject);
-        GameManager.Instance.CustServe();
+        if (isWaitingFood)
+        {
+            serveFeedback = foodTray.ServeFood(this);
+
+            if (serveFeedback == "Not Serving")
+                return;
+
+            if (serveFeedback == "Correct")
+            {
+                StopCoroutine(waitForOrderRoutine);
+                StartCoroutine(CustomerLeft());
+            }
+            else if (serveFeedback == "Wrong")
+            {
+                CutHeart();
+            }
+            // foodTray.TerimaPlate();
+        }
+
+        // Debug.Log("Customer Served");
+        // GameManager.Instance.CustServe();
+        // Destroy(this.gameObject);
+    }
+
+    private void OnMouseEnter()
+    {
+        orderBox.material.color = new Color(0.8f, 0.8f, 0.8f);
+    }
+
+    private void OnMouseExit()
+    {
+        orderBox.material.color = Color.white;
     }
 }

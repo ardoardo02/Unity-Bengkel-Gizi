@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class FoodTray : MonoBehaviour
 {
     [SerializeField] AudioManager audioManager;
+    [SerializeField] SpriteRenderer foodtrayRender;
     [SerializeField] Transform foodsPlace;
     [SerializeField] TMP_Text nutritionText;
 
@@ -19,19 +21,19 @@ public class FoodTray : MonoBehaviour
 
     int karbo, protein_serat, mineral_kalsium = 0;
     bool freePlate = true;
+    bool isServing = false;
     Transform placePoint;
 
     public List<Food> Foods = new List<Food>();
 
     public void AddFood(Food food, Transform foodRender)
     {
-        if (Foods.Count >= 6)
+        if (isServing)
         {
-            audioManager.PlayPlateFullSFX();
             return;
         }
 
-        if (IsPlateFull(food.NutritionValue))
+        if (Foods.Count >= 6 || IsPlateFull(food.NutritionValue))
         {
             audioManager.PlayPlateFullSFX();
             return;
@@ -113,8 +115,10 @@ public class FoodTray : MonoBehaviour
             "Kl: " + plateValue[Nutrition.Kalsium];
     }
 
-    public void ResetPlate()
+    private void ResetPlate()
     {
+        isServing = false;
+        ChangeFoodtrayColor();
         audioManager.PlayResetPlateSFX();
 
         plateValue[Nutrition.Karbohidrat] = 0;
@@ -135,5 +139,86 @@ public class FoodTray : MonoBehaviour
         {
             foodsPlace.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
         }
+    }
+
+    public string ServeFood(Customer cus)
+    {
+        if (!isServing)
+            return "Not Serving";
+
+        foreach (var (key, value) in cus.CustOrder)
+        {
+            if (cus.CustOrder[key] != plateValue[key])
+            {
+                ResetPlate();
+                return "Wrong";
+            }
+        }
+
+        ResetPlate();
+        return "Correct";
+    }
+
+    private void ChangeFoodsColor(Color color, bool isMaterial)
+    {
+        for (int i = 0; i < foodsPlace.childCount; i++)
+        {
+            if (isMaterial)
+                foodsPlace.GetChild(i).GetComponent<SpriteRenderer>().material.color = color;
+            else
+                foodsPlace.GetChild(i).GetComponent<SpriteRenderer>().color = color;
+        }
+    }
+
+    private void ChangeFoodtrayColor()
+    {
+        if (isServing)
+        {
+            foodtrayRender.color = Color.gray;
+            ChangeFoodsColor(Color.gray, false);
+        }
+        else
+        {
+            foodtrayRender.color = Color.white;
+            ChangeFoodsColor(Color.white, false);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        foodtrayRender.material.color = Color.white;
+        ChangeFoodsColor(Color.white, true);
+
+        if (karbo == 0 && protein_serat == 0 && mineral_kalsium == 0)
+        {
+            // audioManager.PlayPlateEmptySFX();
+            return;
+        }
+
+        isServing = !isServing;
+        ChangeFoodtrayColor();
+        audioManager.PlayClickFoodtraySFX();
+
+        // audioManager.PlayClickFoodSFX();
+
+        // foodTray.AddFood(this, transform.GetChild(0));
+    }
+
+    private void OnMouseUp()
+    {
+        foodtrayRender.material.color = new Color(0.9f, 0.9f, 0.9f);
+        ChangeFoodsColor(new Color(0.9f, 0.9f, 0.9f), true);
+    }
+
+    private void OnMouseEnter()
+    {
+        foodtrayRender.material.color = new Color(0.9f, 0.9f, 0.9f);
+        ChangeFoodsColor(new Color(0.9f, 0.9f, 0.9f), true);
+    }
+
+    private void OnMouseExit()
+    {
+        foodtrayRender.material.color = Color.white;
+        ChangeFoodsColor(Color.white, true);
     }
 }
