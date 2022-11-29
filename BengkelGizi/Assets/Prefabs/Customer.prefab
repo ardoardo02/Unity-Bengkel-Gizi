@@ -361,7 +361,7 @@ MonoBehaviour:
   halfHeart: {fileID: 21300000, guid: 93ff43d58604d99419794743c174d63f, type: 3}
   emptyHeart: {fileID: 21300000, guid: 84510d7008d4cff4c874d219de1cd24e, type: 3}
   orderTime: 3
-  customerPatience: 25
+  customerPatience: 30
   minTotalOrder: 1
   maxTotalOrder: 3
   minNutritionValue: 1
@@ -378,7 +378,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5aac079898234fe45b5a9610561fbd54, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 2.5
   Loop: 1
   Mute: 0

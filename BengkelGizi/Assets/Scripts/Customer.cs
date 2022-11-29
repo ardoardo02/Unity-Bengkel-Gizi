@@ -166,8 +166,11 @@ public class Customer : MonoBehaviour
 
     private void gone()
     {
-        if (serveFeedback != "Correct")
+        if (serveFeedback == "Correct")
+            GameManager.Instance.CustServe();
+        else
             GameManager.Instance.CustGone();
+
         Destroy(this.gameObject);
     }
 
