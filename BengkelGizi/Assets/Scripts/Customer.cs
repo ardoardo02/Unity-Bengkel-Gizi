@@ -131,7 +131,7 @@ public class Customer : MonoBehaviour
         if (serveFeedback != "Correct")
         {
             anim.SetInteger("isAngry", 2);
-            talk_SFX.pitch = -2.5f;
+            // talk_SFX.pitch = -2.5f;
             talk_SFX.Play();
         }
 
