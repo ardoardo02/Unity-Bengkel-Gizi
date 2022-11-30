@@ -15,7 +15,7 @@ public class LevelSelect : MonoBehaviour
 
     int totalStars;
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < levelButton.Length; i++)
         {
