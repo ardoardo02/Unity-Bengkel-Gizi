@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text LevelNum_txt;
     [SerializeField] private GameObject InfoBeforeStart_panel;
 
+    [Header("InfoPanel Setup")]
+    //[SerializeField] private TMP_Text CustomerPatience_txt;
+    [SerializeField] private TMP_Text TotalCustomer_txt;
+
     [Header("Customer Setup")]
     [SerializeField] private int CustomerTotal;
     [SerializeField] private int CustomerRemaining;
@@ -59,8 +63,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Victory();
-        //GameOver();
+        TotalCustomer_txt.SetText(CustomerTotal.ToString());
+
         LevelNum_txt.SetText(level.ToString());
 
         CustomerRemaining = CustomerTotal;
