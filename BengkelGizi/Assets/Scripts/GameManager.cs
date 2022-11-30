@@ -4,28 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Gameplay Setup")]
     [SerializeField] private float heart = 5f;
+    [SerializeField] private int level;
+    [SerializeField] private TMP_Text LevelNum_txt;
+    [SerializeField] private GameObject InfoBeforeStart_panel;
 
+    [Header("Customer Setup")]
     [SerializeField] private int CustomerTotal;
     [SerializeField] private int CustomerRemaining;
     private int CustomerRemainingText;
     [SerializeField] private int CustomerCounter;
+    [SerializeField] private TMP_Text CustRemaining_txt;
 
-    [SerializeField] private GameObject InfoBeforeStart_panel;
-    [SerializeField] private GameObject GameOver_Panel;
+
+    [Header("Victory Setup")]
     [SerializeField] private GameObject Victory_Panel;
-    [SerializeField] private GameObject PausePanel;
-    [SerializeField] private GameObject DimmerPause;
+    [SerializeField] private Button NextLevel_Button;
 
+    [SerializeField] private Image Star;
+    [SerializeField] private Sprite Star1;
+    [SerializeField] private Sprite Star2;
+    [SerializeField] private Sprite Star3;
+
+    [SerializeField] private TMP_Text levelNum_txt;
+    [SerializeField] private TMP_Text CustomerServed_txt;
+    [SerializeField] private TMP_Text CustomerAngry_txt;
+
+    [Header("Pause Menu Setup")]
+    [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject AreYourSureRestart;
     [SerializeField] private GameObject AreYourSureMainMenu;
 
-    [SerializeField] private int level;
-    [SerializeField] private TMP_Text LevelNum_txt;
-    [SerializeField] private TMP_Text CustRemaining_txt;
+
+
 
     private static GameManager gameManagerInstance;
     public static GameManager Instance
@@ -43,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Victory();
+        //GameOver();
         LevelNum_txt.SetText(level.ToString());
 
         CustomerRemaining = CustomerTotal;
@@ -51,15 +69,14 @@ public class GameManager : MonoBehaviour
         CustRemaining_txt.SetText(CustomerRemainingText.ToString());
 
         PausePanel.SetActive(false);
-        GameOver_Panel.SetActive(false);
         Victory_Panel.SetActive(false);
+
         Time.timeScale = 0;
         InfoBeforeStart_panel.SetActive(true);
     }
 
     public void StartGame()
     {
-        DimmerPause.SetActive(false);
         InfoBeforeStart_panel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -109,28 +126,51 @@ public class GameManager : MonoBehaviour
     private void Victory()
     {
         Victory_Panel.SetActive(true);
+        if (heart == 5)
+        {
+            Star.sprite = Star3;
+        }
+        else if (heart <= 4 && heart >= 3)
+        {
+            Star.sprite = Star2;
+        }
+        else if (heart <= 2 && heart >= 1)
+        {
+            Star.sprite = Star1;
+        }
+
+        setupTextWinLose();
+
+        levelNum_txt.SetText(level.ToString() + " Complete");
         Debug.Log("Victory");
     }
 
 
     private void GameOver()
     {
-        GameOver_Panel.SetActive(true);
+        NextLevel_Button.interactable = false;
+        Victory_Panel.SetActive(true);
+        setupTextWinLose();
+        levelNum_txt.SetText(level.ToString() + " Failed");
         Debug.Log("GameOver");
     }
 
-
+    private void setupTextWinLose()
+    {
+        var lastHeart = 5 - heart;
+        CustomerAngry_txt.SetText(lastHeart.ToString());
+        var CustomerServed = CustomerTotal - lastHeart;
+        CustomerServed_txt.SetText(CustomerServed.ToString());
+    }
     // Pause Panel
     public void PauseGame()
     {
-        DimmerPause.SetActive(true);
         Time.timeScale = 0;
         PausePanel.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        DimmerPause.SetActive(false);
         PausePanel.SetActive(false);
         Time.timeScale = 1;
     }
