@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     {
         TotalCustomer_txt.SetText(CustomerTotal.ToString());
 
-        LevelNum_txt.SetText(level.ToString());
+        LevelNum_txt.SetText("Level " + level);
 
         CustomerRemaining = CustomerTotal;
 
