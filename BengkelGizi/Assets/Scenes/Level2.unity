@@ -626,7 +626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 40
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abde6a4988c921548b463797fb2e814f, type: 2}
   m_sharedMaterial: {fileID: -2546309253946221481, guid: abde6a4988c921548b463797fb2e814f, type: 2}
@@ -2014,7 +2014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Maks 2 Jenis
+  m_text: 'Maks 3 Jenis
 
 '
   m_isRightToLeft: 0
@@ -2123,11 +2123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: 5
-  level: 1
+  level: 2
   LevelNum_txt: {fileID: 1080626563}
   InfoBeforeStart_panel: {fileID: 1887427934}
   TotalCustomer_txt: {fileID: 1472726278}
-  CustomerTotal: 8
+  CustomerTotal: 10
   CustomerRemaining: 0
   CustomerCounter: 0
   CustRemaining_txt: {fileID: 614926231}
@@ -3312,11 +3312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
       propertyPath: maxTotalOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7989556844656676375, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
       propertyPath: customerPatience
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7989556845246065772, guid: 9c86f57b3347172498a149841510ca6e, type: 3}
       propertyPath: m_LocalScale.x

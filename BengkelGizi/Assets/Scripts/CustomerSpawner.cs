@@ -129,6 +129,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         Debug.Log("Instantitate Customer");
         var Clone = Instantiate(_Cust.transform, transform.position, transform.rotation);
+        Clone.gameObject.SetActive(true);
         Clone.gameObject.tag = numCust.ToString();
         Clone.gameObject.GetComponent<Customer>().SetFoodTray(foodTray);
     }
