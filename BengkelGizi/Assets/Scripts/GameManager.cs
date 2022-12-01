@@ -133,19 +133,28 @@ public class GameManager : MonoBehaviour
         if (heart == 5)
         {
             Star.sprite = Star3;
+
+            if (PlayerPrefs.GetInt("Level" + level + "Stars") < 3)
+                PlayerPrefs.SetInt("Level" + level + "Stars", 3);
         }
         else if (heart <= 4 && heart >= 3)
         {
             Star.sprite = Star2;
+
+            if (PlayerPrefs.GetInt("Level" + level + "Stars") < 2)
+                PlayerPrefs.SetInt("Level" + level + "Stars", 2);
         }
         else if (heart <= 2 && heart >= 1)
         {
             Star.sprite = Star1;
+
+            if (PlayerPrefs.GetInt("Level" + level + "Stars") < 1)
+                PlayerPrefs.SetInt("Level" + level + "Stars", 1);
         }
 
         setupTextWinLose();
 
-        levelNum_txt.SetText(level.ToString() + " Complete");
+        levelNum_txt.SetText("LEVEL " + level + " COMPLETED!");
         Debug.Log("Victory");
     }
 
@@ -155,7 +164,7 @@ public class GameManager : MonoBehaviour
         NextLevel_Button.interactable = false;
         Victory_Panel.SetActive(true);
         setupTextWinLose();
-        levelNum_txt.SetText(level.ToString() + " Failed");
+        levelNum_txt.SetText("LEVEL " + level + " FAILED");
         Debug.Log("GameOver");
     }
 
