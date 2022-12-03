@@ -123,6 +123,23 @@ public class Customer : MonoBehaviour
         StartCoroutine(CustomerLeft());
     }
 
+    IEnumerator Eat()
+    {
+        isWaitingFood = false;
+        orderBox.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+
+        anim.SetBool("isEating", true);
+        // anim.Play("Teen1_Eat");
+        yield return new WaitForSeconds(Random.Range(4f, 8f));
+
+        anim.SetBool("isEating", false);
+        // anim.Play("Teen1_Idle");
+
+        StartCoroutine(CustomerLeft());
+    }
+
     IEnumerator CustomerLeft()
     {
         isWaitingFood = false;
@@ -197,7 +214,7 @@ public class Customer : MonoBehaviour
             if (serveFeedback == "Correct")
             {
                 StopCoroutine(waitForOrderRoutine);
-                StartCoroutine(CustomerLeft());
+                StartCoroutine(Eat());
             }
             else if (serveFeedback == "Wrong")
             {
