@@ -29,6 +29,7 @@ public class Customer : MonoBehaviour
     int i_heart, j_heart;
     string serveFeedback;
     Coroutine waitForOrderRoutine = null;
+    List<Nutrition> nutrtionOrderList = new List<Nutrition>();
     List<Nutrition> nutritionList = new List<Nutrition>();
 
     Dictionary<Nutrition, int> custOrder = new Dictionary<Nutrition, int>(5){
@@ -230,6 +231,9 @@ public class Customer : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (!foodTray.IsServing || !isWaitingFood)
+            return;
+
         orderBox.material.color = new Color(0.8f, 0.8f, 0.8f);
     }
 

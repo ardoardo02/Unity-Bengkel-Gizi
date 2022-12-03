@@ -9175,7 +9175,7 @@ MonoBehaviour:
   karboText: {fileID: 1130577734}
   proteinText: {fileID: 496778828}
   seratText: {fileID: 59571555}
-  vitaminText: {fileID: 0}
+  vitaminText: {fileID: 153445811}
   kalsiumText: {fileID: 280609552}
   Foods: []
 --- !u!4 &1611198530

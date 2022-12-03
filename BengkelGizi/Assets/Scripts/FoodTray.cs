@@ -30,11 +30,12 @@ public class FoodTray : MonoBehaviour
     bool isServing = false;
     Transform placePoint;
 
+    public bool IsServing { get => isServing; }
     public List<Food> Foods = new List<Food>();
 
     public void AddFood(Food food, Transform foodRender)
     {
-        if (isServing)
+        if (IsServing)
         {
             return;
         }
@@ -88,8 +89,6 @@ public class FoodTray : MonoBehaviour
 
         if (val == Nutrition.Karbohidrat && karbo == 1)
         {
-            if (freePlate)
-                return false;
             return true;
         }
 
@@ -178,7 +177,7 @@ public class FoodTray : MonoBehaviour
 
     private void ChangeFoodtrayColor()
     {
-        if (isServing)
+        if (IsServing)
         {
             foodtrayRender.color = Color.gray;
             ChangeFoodsColor(Color.gray, false);
@@ -201,7 +200,7 @@ public class FoodTray : MonoBehaviour
             return;
         }
 
-        isServing = !isServing;
+        isServing = !IsServing;
         ChangeFoodtrayColor();
         audioManager.PlayClickFoodtraySFX();
 
