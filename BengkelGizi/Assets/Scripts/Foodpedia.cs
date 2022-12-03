@@ -14,7 +14,7 @@ public class Foodpedia : MonoBehaviour
     [SerializeField] private GameObject Protein;
     [SerializeField] private GameObject Karbohidrat;
     [SerializeField] private GameObject Serat;
-    [SerializeField] private GameObject Mineral;
+    [SerializeField] private GameObject VitaminC;
     [SerializeField] private GameObject Kalsium;
 
 
@@ -30,7 +30,7 @@ public class Foodpedia : MonoBehaviour
     [SerializeField] private Sprite ProteinDefault;
     [SerializeField] private Sprite KarbohidratDefault;
     [SerializeField] private Sprite SeratDefault;
-    [SerializeField] private Sprite MineralDefault;
+    [SerializeField] private Sprite VitaminCDefault;
     [SerializeField] private Sprite KalsiumDefault;
 
     private void Start()
@@ -43,7 +43,6 @@ public class Foodpedia : MonoBehaviour
     {
         InactiveAllNutrition();
         Nutrition.SetActive(true);
-        Debug.Log(Nutrition.ToString());
         setDefault(Nutrition);
     }
 
@@ -52,7 +51,7 @@ public class Foodpedia : MonoBehaviour
         Protein.SetActive(false);
         Karbohidrat.SetActive(false);
         Serat.SetActive(false);
-        Mineral.SetActive(false);
+        VitaminC.SetActive(false);
         Kalsium.SetActive(false);
     }
 
@@ -83,23 +82,23 @@ public class Foodpedia : MonoBehaviour
     {
         if (Nutrition == Protein)
         {
-            setInfo("Daging Ayam", ProteinDefault, "Daging Ayam");
+            setInfo("Ikan Tuna", ProteinDefault, "");
         }
         if (Nutrition == Karbohidrat)
         {
-            setInfo("Bread", KarbohidratDefault, "Bread");
+            setInfo("Roti", KarbohidratDefault, "Bread");
         }
         if (Nutrition == Serat)
         {
-            setInfo("Apple", SeratDefault, "Apple");
+            setInfo("Buncis", SeratDefault, "Apple");
         }
-        if (Nutrition == Mineral)
+        if (Nutrition == VitaminC)
         {
-            setInfo("Avocado", MineralDefault, "Avocado");
+            setInfo("Jambu Biji", VitaminCDefault, "Avocado");
         }
         if (Nutrition == Kalsium)
         {
-            setInfo("Almond", KalsiumDefault, "Almond");
+            setInfo("Keju", KalsiumDefault, "Almond");
         }
     }
 }

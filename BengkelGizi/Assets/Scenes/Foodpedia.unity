@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &3991354 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-  m_PrefabInstance: {fileID: 261790988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &59276500
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +215,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3991354}
+  - {fileID: 598141106}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -229,59 +224,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &261790988
+--- !u!224 &598141106 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
+  m_PrefabInstance: {fileID: 1474257912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1474257912
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 59276504}
     m_Modifications:
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: Nasi
-      value: 
-      objectReference: {fileID: 21300000, guid: 56024b896e7849040a443112c0fe5a25, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: Bread
-      value: 
-      objectReference: {fileID: 21300000, guid: 331a3a4566ee89f47b1427141e4df376, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: telur
-      value: 
-      objectReference: {fileID: 21300000, guid: 6e351c369507edf4084b9719a435d2d0, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: Almond
-      value: 
-      objectReference: {fileID: 21300000, guid: c6e66881997fb824ea86b958a40f5c30, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: DagingAyam
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e8377c219b13d146a6f767f2bd29767, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: ProteinDefault
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e8377c219b13d146a6f767f2bd29767, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: foodDefaults.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: foodDefaults.Array.data[0].mage
-      value: 
-      objectReference: {fileID: 21300000, guid: 4f5e70b383b2a5f4c8d2147b90b87c7c, type: 3}
-    - target: {fileID: 1562904844231741880, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: foodDefaults.Array.data[0].Description
-      value: a
-      objectReference: {fileID: 0}
-    - target: {fileID: 4035283458047092892, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: m_text
-      value: Description
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681380012398002340, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: m_text
-      value: 'Food Name
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -296,27 +250,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 788
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 444
       objectReference: {fileID: 0}
     - target: {fileID: 4951606563079114762, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -369,10 +323,6 @@ PrefabInstance:
     - target: {fileID: 4951606563079114763, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
       propertyPath: m_Name
       value: Foodpedia
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167719967105653187, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
-      propertyPath: m_Sprite
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
