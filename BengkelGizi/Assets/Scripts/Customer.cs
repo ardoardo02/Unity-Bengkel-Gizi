@@ -35,7 +35,7 @@ public class Customer : MonoBehaviour
         {Nutrition.Karbohidrat, 0},
         {Nutrition.Protein, 0},
         {Nutrition.Serat, 0},
-        {Nutrition.Mineral, 0},
+        {Nutrition.Vitamin, 0},
         {Nutrition.Kalsium, 0}
     };
 

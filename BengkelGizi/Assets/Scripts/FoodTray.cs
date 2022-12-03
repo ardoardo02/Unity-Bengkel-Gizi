@@ -21,7 +21,7 @@ public class FoodTray : MonoBehaviour
         {Nutrition.Karbohidrat, 0},
         {Nutrition.Protein, 0},
         {Nutrition.Serat, 0},
-        {Nutrition.Mineral, 0},
+        {Nutrition.Vitamin, 0},
         {Nutrition.Kalsium, 0}
     };
 
@@ -52,7 +52,7 @@ public class FoodTray : MonoBehaviour
 
         if (((karbo == 1 && food.NutritionValue == Nutrition.Karbohidrat)
                 || (protein_serat == 2 && (food.NutritionValue == Nutrition.Protein || food.NutritionValue == Nutrition.Serat))
-                || (mineral_kalsium == 2 && (food.NutritionValue == Nutrition.Mineral || food.NutritionValue == Nutrition.Kalsium)))
+                || (mineral_kalsium == 2 && (food.NutritionValue == Nutrition.Vitamin || food.NutritionValue == Nutrition.Kalsium)))
             && freePlate)
         {
             placePoint = foodsPlace.GetChild(5);
@@ -100,7 +100,7 @@ public class FoodTray : MonoBehaviour
             return true;
         }
 
-        if ((val == Nutrition.Mineral || val == Nutrition.Kalsium) && mineral_kalsium == 2)
+        if ((val == Nutrition.Vitamin || val == Nutrition.Kalsium) && mineral_kalsium == 2)
         {
             if (freePlate)
                 return false;
@@ -117,7 +117,7 @@ public class FoodTray : MonoBehaviour
         karboText.text = plateValue[Nutrition.Karbohidrat].ToString();
         proteinText.text = plateValue[Nutrition.Protein].ToString();
         seratText.text = plateValue[Nutrition.Serat].ToString();
-        mineralText.text = plateValue[Nutrition.Mineral].ToString();
+        mineralText.text = plateValue[Nutrition.Vitamin].ToString();
         kalsiumText.text = plateValue[Nutrition.Kalsium].ToString();
     }
 
@@ -130,7 +130,7 @@ public class FoodTray : MonoBehaviour
         plateValue[Nutrition.Karbohidrat] = 0;
         plateValue[Nutrition.Protein] = 0;
         plateValue[Nutrition.Serat] = 0;
-        plateValue[Nutrition.Mineral] = 0;
+        plateValue[Nutrition.Vitamin] = 0;
         plateValue[Nutrition.Kalsium] = 0;
 
         karbo = 0;

@@ -4,6 +4,6 @@ public enum Nutrition
     Karbohidrat,
     Protein,
     Serat,
-    Mineral,
+    Vitamin,
     Kalsium
 }

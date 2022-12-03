@@ -343,10 +343,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2090852502624787048, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
-      propertyPath: foodValue
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3488138572074856546, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_Sprite
       value: 
