@@ -9,7 +9,13 @@ public class FoodTray : MonoBehaviour
     [SerializeField] AudioManager audioManager;
     [SerializeField] SpriteRenderer foodtrayRender;
     [SerializeField] Transform foodsPlace;
-    [SerializeField] TMP_Text nutritionText;
+
+    [Header("Nutrition Text")]
+    [SerializeField] TMP_Text karboText;
+    [SerializeField] TMP_Text proteinText;
+    [SerializeField] TMP_Text seratText;
+    [SerializeField] TMP_Text mineralText;
+    [SerializeField] TMP_Text kalsiumText;
 
     Dictionary<Nutrition, int> plateValue = new Dictionary<Nutrition, int>(5){
         {Nutrition.Karbohidrat, 0},
@@ -108,11 +114,11 @@ public class FoodTray : MonoBehaviour
     {
         plateValue[nutrition] += val;
 
-        nutritionText.text = "Kb: " + plateValue[Nutrition.Karbohidrat] + " | " +
-            "Pr: " + plateValue[Nutrition.Protein] + " | " +
-            "Sr: " + plateValue[Nutrition.Serat] + " | " +
-            "Mn: " + plateValue[Nutrition.Mineral] + " | " +
-            "Kl: " + plateValue[Nutrition.Kalsium];
+        karboText.text = plateValue[Nutrition.Karbohidrat].ToString();
+        proteinText.text = plateValue[Nutrition.Protein].ToString();
+        seratText.text = plateValue[Nutrition.Serat].ToString();
+        mineralText.text = plateValue[Nutrition.Mineral].ToString();
+        kalsiumText.text = plateValue[Nutrition.Kalsium].ToString();
     }
 
     private void ResetPlate()

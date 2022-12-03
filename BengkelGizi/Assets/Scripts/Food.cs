@@ -9,6 +9,7 @@ public class Food : MonoBehaviour
     [SerializeField] FoodTray foodTray;
     [SerializeField] Renderer foodRenderer;
     [SerializeField] Renderer plateRenderer;
+    [SerializeField] Transform foodsRenderParent;
     [SerializeField] TMP_Text nutritionText;
 
     [Header("Food Property")]
@@ -27,28 +28,34 @@ public class Food : MonoBehaviour
 
     private void OnMouseDown()
     {
-        foodRenderer.material.color = Color.white;
-        plateRenderer.material.color = Color.white;
-        // audioManager.PlayClickFoodSFX();
+        ChangeFoodsColor(Color.white);
 
         foodTray.AddFood(this, transform.GetChild(0));
     }
 
     private void OnMouseUp()
     {
-        foodRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
-        plateRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+        ChangeFoodsColor(new Color(0.8f, 0.8f, 0.8f));
     }
 
     private void OnMouseEnter()
     {
-        foodRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
-        plateRenderer.material.color = new Color(0.8f, 0.8f, 0.8f);
+        ChangeFoodsColor(new Color(0.8f, 0.8f, 0.8f));
     }
 
     private void OnMouseExit()
     {
-        foodRenderer.material.color = Color.white;
-        plateRenderer.material.color = Color.white;
+        ChangeFoodsColor(Color.white);
+    }
+
+    private void ChangeFoodsColor(Color color)
+    {
+        foodRenderer.material.color = color;
+        plateRenderer.material.color = color;
+
+        foreach (Transform food in foodsRenderParent)
+        {
+            food.GetComponent<Renderer>().material.color = color;
+        }
     }
 }
