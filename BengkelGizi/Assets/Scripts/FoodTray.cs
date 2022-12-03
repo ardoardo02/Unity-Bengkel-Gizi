@@ -14,7 +14,7 @@ public class FoodTray : MonoBehaviour
     [SerializeField] TMP_Text karboText;
     [SerializeField] TMP_Text proteinText;
     [SerializeField] TMP_Text seratText;
-    [SerializeField] TMP_Text mineralText;
+    [SerializeField] TMP_Text vitaminText;
     [SerializeField] TMP_Text kalsiumText;
 
     Dictionary<Nutrition, int> plateValue = new Dictionary<Nutrition, int>(5){
@@ -25,7 +25,7 @@ public class FoodTray : MonoBehaviour
         {Nutrition.Kalsium, 0}
     };
 
-    int karbo, protein_serat, mineral_kalsium = 0;
+    int karbo, protein_serat, vitamin_kalsium = 0;
     bool freePlate = true;
     bool isServing = false;
     Transform placePoint;
@@ -52,7 +52,7 @@ public class FoodTray : MonoBehaviour
 
         if (((karbo == 1 && food.NutritionValue == Nutrition.Karbohidrat)
                 || (protein_serat == 2 && (food.NutritionValue == Nutrition.Protein || food.NutritionValue == Nutrition.Serat))
-                || (mineral_kalsium == 2 && (food.NutritionValue == Nutrition.Vitamin || food.NutritionValue == Nutrition.Kalsium)))
+                || (vitamin_kalsium == 2 && (food.NutritionValue == Nutrition.Vitamin || food.NutritionValue == Nutrition.Kalsium)))
             && freePlate)
         {
             placePoint = foodsPlace.GetChild(5);
@@ -70,8 +70,8 @@ public class FoodTray : MonoBehaviour
         }
         else
         {
-            placePoint = foodsPlace.GetChild(mineral_kalsium + 3);
-            mineral_kalsium++;
+            placePoint = foodsPlace.GetChild(vitamin_kalsium + 3);
+            vitamin_kalsium++;
         }
 
         // spawn makanan di food tray
@@ -83,7 +83,7 @@ public class FoodTray : MonoBehaviour
 
     private bool IsPlateFull(Nutrition val)
     {
-        if (karbo == 0 && protein_serat == 0 && mineral_kalsium == 0)
+        if (karbo == 0 && protein_serat == 0 && vitamin_kalsium == 0)
             return false;
 
         if (val == Nutrition.Karbohidrat && karbo == 1)
@@ -100,7 +100,7 @@ public class FoodTray : MonoBehaviour
             return true;
         }
 
-        if ((val == Nutrition.Vitamin || val == Nutrition.Kalsium) && mineral_kalsium == 2)
+        if ((val == Nutrition.Vitamin || val == Nutrition.Kalsium) && vitamin_kalsium == 2)
         {
             if (freePlate)
                 return false;
@@ -117,7 +117,7 @@ public class FoodTray : MonoBehaviour
         karboText.text = plateValue[Nutrition.Karbohidrat].ToString();
         proteinText.text = plateValue[Nutrition.Protein].ToString();
         seratText.text = plateValue[Nutrition.Serat].ToString();
-        mineralText.text = plateValue[Nutrition.Vitamin].ToString();
+        vitaminText.text = plateValue[Nutrition.Vitamin].ToString();
         kalsiumText.text = plateValue[Nutrition.Kalsium].ToString();
     }
 
@@ -135,7 +135,7 @@ public class FoodTray : MonoBehaviour
 
         karbo = 0;
         protein_serat = 0;
-        mineral_kalsium = 0;
+        vitamin_kalsium = 0;
         freePlate = true;
 
         UpdateNutrition(nutrition: Nutrition.Karbohidrat, val: 0);
@@ -195,7 +195,7 @@ public class FoodTray : MonoBehaviour
         foodtrayRender.material.color = Color.white;
         ChangeFoodsColor(Color.white, true);
 
-        if (karbo == 0 && protein_serat == 0 && mineral_kalsium == 0)
+        if (karbo == 0 && protein_serat == 0 && vitamin_kalsium == 0)
         {
             // audioManager.PlayPlateEmptySFX();
             return;
