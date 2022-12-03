@@ -14,27 +14,28 @@ public class FoodTray : MonoBehaviour
     [SerializeField] TMP_Text karboText;
     [SerializeField] TMP_Text proteinText;
     [SerializeField] TMP_Text seratText;
-    [SerializeField] TMP_Text mineralText;
+    [SerializeField] TMP_Text vitaminText;
     [SerializeField] TMP_Text kalsiumText;
 
     Dictionary<Nutrition, int> plateValue = new Dictionary<Nutrition, int>(5){
         {Nutrition.Karbohidrat, 0},
         {Nutrition.Protein, 0},
         {Nutrition.Serat, 0},
-        {Nutrition.Mineral, 0},
+        {Nutrition.Vitamin, 0},
         {Nutrition.Kalsium, 0}
     };
 
-    int karbo, protein_serat, mineral_kalsium = 0;
+    int karbo, protein_serat, vitamin_kalsium = 0;
     bool freePlate = true;
     bool isServing = false;
     Transform placePoint;
 
+    public bool IsServing { get => isServing; }
     public List<Food> Foods = new List<Food>();
 
     public void AddFood(Food food, Transform foodRender)
     {
-        if (isServing)
+        if (IsServing)
         {
             return;
         }
@@ -52,7 +53,7 @@ public class FoodTray : MonoBehaviour
 
         if (((karbo == 1 && food.NutritionValue == Nutrition.Karbohidrat)
                 || (protein_serat == 2 && (food.NutritionValue == Nutrition.Protein || food.NutritionValue == Nutrition.Serat))
-                || (mineral_kalsium == 2 && (food.NutritionValue == Nutrition.Mineral || food.NutritionValue == Nutrition.Kalsium)))
+                || (vitamin_kalsium == 2 && (food.NutritionValue == Nutrition.Vitamin || food.NutritionValue == Nutrition.Kalsium)))
             && freePlate)
         {
             placePoint = foodsPlace.GetChild(5);
@@ -70,8 +71,8 @@ public class FoodTray : MonoBehaviour
         }
         else
         {
-            placePoint = foodsPlace.GetChild(mineral_kalsium + 3);
-            mineral_kalsium++;
+            placePoint = foodsPlace.GetChild(vitamin_kalsium + 3);
+            vitamin_kalsium++;
         }
 
         // spawn makanan di food tray
@@ -83,13 +84,11 @@ public class FoodTray : MonoBehaviour
 
     private bool IsPlateFull(Nutrition val)
     {
-        if (karbo == 0 && protein_serat == 0 && mineral_kalsium == 0)
+        if (karbo == 0 && protein_serat == 0 && vitamin_kalsium == 0)
             return false;
 
         if (val == Nutrition.Karbohidrat && karbo == 1)
         {
-            if (freePlate)
-                return false;
             return true;
         }
 
@@ -100,7 +99,7 @@ public class FoodTray : MonoBehaviour
             return true;
         }
 
-        if ((val == Nutrition.Mineral || val == Nutrition.Kalsium) && mineral_kalsium == 2)
+        if ((val == Nutrition.Vitamin || val == Nutrition.Kalsium) && vitamin_kalsium == 2)
         {
             if (freePlate)
                 return false;
@@ -117,7 +116,7 @@ public class FoodTray : MonoBehaviour
         karboText.text = plateValue[Nutrition.Karbohidrat].ToString();
         proteinText.text = plateValue[Nutrition.Protein].ToString();
         seratText.text = plateValue[Nutrition.Serat].ToString();
-        mineralText.text = plateValue[Nutrition.Mineral].ToString();
+        vitaminText.text = plateValue[Nutrition.Vitamin].ToString();
         kalsiumText.text = plateValue[Nutrition.Kalsium].ToString();
     }
 
@@ -130,12 +129,12 @@ public class FoodTray : MonoBehaviour
         plateValue[Nutrition.Karbohidrat] = 0;
         plateValue[Nutrition.Protein] = 0;
         plateValue[Nutrition.Serat] = 0;
-        plateValue[Nutrition.Mineral] = 0;
+        plateValue[Nutrition.Vitamin] = 0;
         plateValue[Nutrition.Kalsium] = 0;
 
         karbo = 0;
         protein_serat = 0;
-        mineral_kalsium = 0;
+        vitamin_kalsium = 0;
         freePlate = true;
 
         UpdateNutrition(nutrition: Nutrition.Karbohidrat, val: 0);
@@ -178,7 +177,7 @@ public class FoodTray : MonoBehaviour
 
     private void ChangeFoodtrayColor()
     {
-        if (isServing)
+        if (IsServing)
         {
             foodtrayRender.color = Color.gray;
             ChangeFoodsColor(Color.gray, false);
@@ -195,13 +194,13 @@ public class FoodTray : MonoBehaviour
         foodtrayRender.material.color = Color.white;
         ChangeFoodsColor(Color.white, true);
 
-        if (karbo == 0 && protein_serat == 0 && mineral_kalsium == 0)
+        if (karbo == 0 && protein_serat == 0 && vitamin_kalsium == 0)
         {
             // audioManager.PlayPlateEmptySFX();
             return;
         }
 
-        isServing = !isServing;
+        isServing = !IsServing;
         ChangeFoodtrayColor();
         audioManager.PlayClickFoodtraySFX();
 

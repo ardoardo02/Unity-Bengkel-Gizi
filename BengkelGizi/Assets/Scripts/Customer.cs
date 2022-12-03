@@ -19,23 +19,42 @@ public class Customer : MonoBehaviour
     [SerializeField] float customerPatience = 25f;
     [SerializeField, Range(1, 5)] int minTotalOrder = 1;
     [SerializeField, Range(1, 5)] int maxTotalOrder = 3;
-    [SerializeField, Range(1, 15)] int minNutritionValue = 1;
-    [SerializeField, Range(1, 15)] int maxNutritionValue = 10;
+
+    [Header("Nutrition Values")]
+    [SerializeField] Nutrition[] nutritionOrderList;
+    [Header("Karbohidrat")]
+    [SerializeField, Range(1, 5)] int minKarboValue = 1;
+    [SerializeField, Range(1, 5)] int maxKarboValue = 5;
+    [Header("Protein")]
+    [SerializeField, Range(1, 5)] int minProteinValue = 1;
+    [SerializeField, Range(1, 5)] int maxProteinValue = 5;
+    [Header("Serat")]
+    [SerializeField, Range(1, 5)] int minSeratValue = 1;
+    [SerializeField, Range(1, 5)] int maxSeratValue = 5;
+    [Header("Vitamin")]
+    [SerializeField, Range(1, 5)] int minVitaminValue = 1;
+    [SerializeField, Range(1, 5)] int maxVitaminValue = 5;
+    [Header("Kalsium")]
+    [SerializeField, Range(1, 5)] int minKalsiumValue = 1;
+    [SerializeField, Range(1, 5)] int maxKalsiumValue = 5;
 
     FoodTray foodTray;
     Nutrition nutrition;
     bool isWaitingFood = false;
+    bool isKarboOrdered, freePlate = false;
     int totalOrder;
     int i_heart, j_heart;
     string serveFeedback;
     Coroutine waitForOrderRoutine = null;
-    List<Nutrition> nutritionList = new List<Nutrition>();
+    // List<Nutrition> nutritionList = new List<Nutrition>();
+    int protein_serat, vitamin_kalsium = 0;
+
 
     Dictionary<Nutrition, int> custOrder = new Dictionary<Nutrition, int>(5){
         {Nutrition.Karbohidrat, 0},
         {Nutrition.Protein, 0},
         {Nutrition.Serat, 0},
-        {Nutrition.Mineral, 0},
+        {Nutrition.Vitamin, 0},
         {Nutrition.Kalsium, 0}
     };
 
@@ -69,20 +88,76 @@ public class Customer : MonoBehaviour
 
         while (totalOrder > 0)
         {
-            nutrition = (Nutrition)Random.Range(0, 5);
-            if (!nutritionList.Contains(nutrition))
+            nutrition = !isKarboOrdered ? Nutrition.Karbohidrat : nutritionOrderList[Random.Range(0, nutritionOrderList.Length)];
+
+            if (IsPlateFull(nutrition))
             {
-                nutritionList.Add(nutrition);
-
-                CustOrder[nutrition] = Random.Range(minNutritionValue, maxNutritionValue + 1);
-
-                var text = orderTextParent.GetChild((int)nutrition);
-                text.GetComponent<TMP_Text>().text += CustOrder[nutrition].ToString();
-                text.gameObject.SetActive(true);
-
-                totalOrder--;
+                continue;
             }
+
+            // if (!nutritionList.Contains(nutrition))
+            if (((protein_serat == 2 && (nutrition == Nutrition.Protein || nutrition == Nutrition.Serat))
+                || (vitamin_kalsium == 2 && (nutrition == Nutrition.Vitamin || nutrition == Nutrition.Kalsium)))
+            && freePlate)
+            {
+                freePlate = false;
+            }
+            // nutritionList.Add(nutrition);
+
+            if (nutrition == Nutrition.Karbohidrat)
+                isKarboOrdered = true;
+            else if (nutrition == Nutrition.Protein || nutrition == Nutrition.Serat)
+                protein_serat++;
+            else
+                vitamin_kalsium++;
+
+            CustOrder[nutrition] += Random.Range(
+                nutrition == Nutrition.Karbohidrat ? minKarboValue
+                : nutrition == Nutrition.Protein ? minProteinValue
+                : nutrition == Nutrition.Serat ? minSeratValue
+                : nutrition == Nutrition.Vitamin ? minVitaminValue
+                : minKalsiumValue,
+                nutrition == Nutrition.Karbohidrat ? maxKarboValue + 1
+                : nutrition == Nutrition.Protein ? maxProteinValue + 1
+                : nutrition == Nutrition.Serat ? maxSeratValue + 1
+                : nutrition == Nutrition.Vitamin ? maxVitaminValue + 1
+                : maxKalsiumValue + 1
+            );
+
+            var text = orderTextParent.GetChild((int)nutrition);
+            text.GetComponent<TMP_Text>().text += CustOrder[nutrition].ToString();
+            text.gameObject.SetActive(true);
+
+            totalOrder--;
+
         }
+    }
+
+    private bool IsPlateFull(Nutrition val)
+    {
+        if (!isKarboOrdered && protein_serat == 0 && vitamin_kalsium == 0)
+            return false;
+
+        if (val == Nutrition.Karbohidrat && isKarboOrdered)
+        {
+            return true;
+        }
+
+        if ((val == Nutrition.Protein || val == Nutrition.Serat) && protein_serat == 2)
+        {
+            if (freePlate)
+                return false;
+            return true;
+        }
+
+        if ((val == Nutrition.Vitamin || val == Nutrition.Kalsium) && vitamin_kalsium == 2)
+        {
+            if (freePlate)
+                return false;
+            return true;
+        }
+
+        return false;
     }
 
     IEnumerator Order()
@@ -230,6 +305,9 @@ public class Customer : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (!foodTray.IsServing || !isWaitingFood)
+            return;
+
         orderBox.material.color = new Color(0.8f, 0.8f, 0.8f);
     }
 

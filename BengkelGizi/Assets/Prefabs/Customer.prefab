@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7989556844060754696}
   - component: {fileID: 7989556844060754711}
   m_Layer: 5
-  m_Name: Mineral Text (TMP)
+  m_Name: Vitamin Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mineral: '
+  m_text: 'Vitamin: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abde6a4988c921548b463797fb2e814f, type: 2}
   m_sharedMaterial: {fileID: -2546309253946221481, guid: abde6a4988c921548b463797fb2e814f, type: 2}
@@ -364,8 +364,17 @@ MonoBehaviour:
   customerPatience: 30
   minTotalOrder: 1
   maxTotalOrder: 3
-  minNutritionValue: 1
-  maxNutritionValue: 10
+  nutritionOrderList: 00000000
+  minKarboValue: 1
+  maxKarboValue: 5
+  minProteinValue: 1
+  maxProteinValue: 5
+  minSeratValue: 1
+  maxSeratValue: 5
+  minVitaminValue: 1
+  maxVitaminValue: 5
+  minKalsiumValue: 1
+  maxKalsiumValue: 5
 --- !u!82 &7989556844656676360
 AudioSource:
   m_ObjectHideFlags: 0
