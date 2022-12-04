@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        IsGamePaused = true;
+
         TotalCustomer_txt.SetText(CustomerTotal.ToString());
 
         LevelNum_txt.SetText("Level " + level);
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        IsGamePaused = false;
         InfoBeforeStart_panel.SetActive(false);
         Time.timeScale = 1;
     }

@@ -10,7 +10,7 @@ public class Customer : MonoBehaviour
     [SerializeField] Transform hearts;
     [SerializeField] Animator anim;
     [SerializeField] AudioSource talk_SFX;
-    [SerializeField] AudioManager audioManager;
+    //[SerializeField] AudioManager audioManager;
 
     [SerializeField] Sprite halfHeart;
     [SerializeField] Sprite emptyHeart;
@@ -339,7 +339,7 @@ public class Customer : MonoBehaviour
             else if (serveFeedback == "Wrong")
             {
                 CutHeart();
-                audioManager.PlayResetPlateSFX();
+                //audioManager.PlayResetPlateSFX();
             }
             // foodTray.TerimaPlate();
         }
