@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] AudioManager audioManager;
     [Header("Gameplay Setup")]
     [SerializeField] private float heart = 5f;
     [SerializeField] private int level;
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject AreYourSureRestart;
     [SerializeField] private GameObject AreYourSureMainMenu;
 
-
+    public bool IsGamePaused = false;
 
 
     private static GameManager gameManagerInstance;
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
     private void Victory()
     {
         Victory_Panel.SetActive(true);
+        //audioManager.PlayWinSFX();
         if (heart == 5)
         {
             Star.sprite = Star3;
@@ -163,6 +165,7 @@ public class GameManager : MonoBehaviour
     {
         NextLevel_Button.interactable = false;
         Victory_Panel.SetActive(true);
+        //audioManager.PlayLoseSFX();
         setupTextWinLose();
         levelNum_txt.SetText("LEVEL " + level + " FAILED");
         Debug.Log("GameOver");
@@ -178,12 +181,14 @@ public class GameManager : MonoBehaviour
     // Pause Panel
     public void PauseGame()
     {
+        IsGamePaused = true;
         Time.timeScale = 0;
         PausePanel.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        IsGamePaused = false;
         PausePanel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -191,16 +196,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         AreYourSureRestart.SetActive(true);
-    }
-
-    public void Foodpedia()
-    {
-
-    }
-
-    public void Option()
-    {
-
     }
 
     public void MainMenu()

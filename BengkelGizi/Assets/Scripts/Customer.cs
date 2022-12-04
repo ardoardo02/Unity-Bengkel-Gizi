@@ -10,6 +10,7 @@ public class Customer : MonoBehaviour
     [SerializeField] Transform hearts;
     [SerializeField] Animator anim;
     [SerializeField] AudioSource talk_SFX;
+    [SerializeField] AudioManager audioManager;
 
     [SerializeField] Sprite halfHeart;
     [SerializeField] Sprite emptyHeart;
@@ -319,6 +320,9 @@ public class Customer : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         if (isWaitingFood)
         {
             serveFeedback = foodTray.ServeFood(this);
@@ -328,12 +332,14 @@ public class Customer : MonoBehaviour
 
             if (serveFeedback == "Correct")
             {
+                //audioManager.PlayCorrectOrderSFX();
                 StopCoroutine(waitForOrderRoutine);
                 StartCoroutine(Eat());
             }
             else if (serveFeedback == "Wrong")
             {
                 CutHeart();
+                audioManager.PlayResetPlateSFX();
             }
             // foodTray.TerimaPlate();
         }
@@ -345,6 +351,9 @@ public class Customer : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         if (!foodTray.IsServing || !isWaitingFood)
             return;
 

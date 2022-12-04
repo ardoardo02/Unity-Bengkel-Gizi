@@ -124,7 +124,7 @@ public class FoodTray : MonoBehaviour
     {
         isServing = false;
         ChangeFoodtrayColor();
-        audioManager.PlayResetPlateSFX();
+        // audioManager.PlayResetPlateSFX();
 
         plateValue[Nutrition.Karbohidrat] = 0;
         plateValue[Nutrition.Protein] = 0;
@@ -191,6 +191,9 @@ public class FoodTray : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         foodtrayRender.material.color = Color.white;
         ChangeFoodsColor(Color.white, true);
 
@@ -211,12 +214,18 @@ public class FoodTray : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         foodtrayRender.material.color = new Color(0.9f, 0.9f, 0.9f);
         ChangeFoodsColor(new Color(0.9f, 0.9f, 0.9f), true);
     }
 
     private void OnMouseEnter()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         foodtrayRender.material.color = new Color(0.9f, 0.9f, 0.9f);
         ChangeFoodsColor(new Color(0.9f, 0.9f, 0.9f), true);
     }
