@@ -28,6 +28,9 @@ public class Food : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (foodTray.IsServing || GameManager.Instance.IsGamePaused)
+            return;
+
         ChangeFoodsColor(Color.white);
 
         foodTray.AddFood(this, transform.GetChild(0));
@@ -35,11 +38,17 @@ public class Food : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (foodTray.IsServing || GameManager.Instance.IsGamePaused)
+            return;
+
         ChangeFoodsColor(new Color(0.8f, 0.8f, 0.8f));
     }
 
     private void OnMouseEnter()
     {
+        if (foodTray.IsServing || GameManager.Instance.IsGamePaused)
+            return;
+
         ChangeFoodsColor(new Color(0.8f, 0.8f, 0.8f));
     }
 

@@ -319,6 +319,9 @@ public class Customer : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         if (isWaitingFood)
         {
             serveFeedback = foodTray.ServeFood(this);
@@ -345,6 +348,9 @@ public class Customer : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (GameManager.Instance.IsGamePaused)
+            return;
+
         if (!foodTray.IsServing || !isWaitingFood)
             return;
 

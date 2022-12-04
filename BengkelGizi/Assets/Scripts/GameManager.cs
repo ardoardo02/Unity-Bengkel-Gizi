@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject AreYourSureRestart;
     [SerializeField] private GameObject AreYourSureMainMenu;
 
-
+    public bool IsGamePaused = false;
 
 
     private static GameManager gameManagerInstance;
@@ -178,12 +178,14 @@ public class GameManager : MonoBehaviour
     // Pause Panel
     public void PauseGame()
     {
+        IsGamePaused = true;
         Time.timeScale = 0;
         PausePanel.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        IsGamePaused = false;
         PausePanel.SetActive(false);
         Time.timeScale = 1;
     }
