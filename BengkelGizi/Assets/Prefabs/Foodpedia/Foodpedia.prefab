@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e351c369507edf4084b9719a435d2d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c50202ebadb14934f8119b5afe8cb4df, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1655,11 +1655,11 @@ MonoBehaviour:
   Serat: {fileID: 2977409880208416604}
   VitaminC: {fileID: 3462821915997827544}
   Kalsium: {fileID: 5572634874683252343}
-  ProteinDefault: {fileID: 21300000, guid: 290c256060900bb43a9a9983cd9b2a21, type: 3}
-  KarbohidratDefault: {fileID: 21300000, guid: 331a3a4566ee89f47b1427141e4df376, type: 3}
-  SeratDefault: {fileID: 21300000, guid: c6e66881997fb824ea86b958a40f5c30, type: 3}
-  VitaminCDefault: {fileID: 21300000, guid: aa1a2341c8bdfb24390acb13654f667b, type: 3}
-  KalsiumDefault: {fileID: 21300000, guid: abf202319d92364459409dd2e6b83692, type: 3}
+  ProteinDefault: {fileID: 21300000, guid: cdf6187b2ad26084383c905454cc1313, type: 3}
+  KarbohidratDefault: {fileID: 21300000, guid: cc566e514fe68f245afedca05d4f9461, type: 3}
+  SeratDefault: {fileID: 21300000, guid: ce6eb7ef07a7549489497cb24d534b55, type: 3}
+  VitaminCDefault: {fileID: 21300000, guid: b22a3a21ab917714795ab5c47f6b3a1e, type: 3}
+  KalsiumDefault: {fileID: 21300000, guid: dbbb7864a42a92b44909cc71034c9078, type: 3}
 --- !u!82 &4786320796811436696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2512,8 +2512,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3134,7 +3134,7 @@ GameObject:
   - component: {fileID: 3218863089032279302}
   - component: {fileID: 5674846008308847952}
   m_Layer: 0
-  m_Name: MineralButton
+  m_Name: VitaminC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4015,14 +4015,17 @@ PrefabInstance:
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 6e351c369507edf4084b9719a435d2d0, type: 3}
+      objectReference: {fileID: 21300000, guid: c50202ebadb14934f8119b5afe8cb4df, type: 3}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Telur Ayam
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Telur
+      value: Telur ayam adalah salah satu makanan hewani yang sudah ribuan tahun
+        dikonsumsi oleh manusia. Produksi telur ayam di dunia pada tahun 2020 mencapai
+        77 juta ton. Per 100 g BDD, telur ayam memiliki kandungan protein sebesar
+        12.40 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -4047,7 +4050,7 @@ PrefabInstance:
     - target: {fileID: 5492555528544055029, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6e351c369507edf4084b9719a435d2d0, type: 3}
+      objectReference: {fileID: 21300000, guid: c50202ebadb14934f8119b5afe8cb4df, type: 3}
     - target: {fileID: 5780361924263769884, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Protein
@@ -4059,7 +4062,7 @@ PrefabInstance:
     - target: {fileID: 5784111151460401098, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 682c8ae72cb08b147b87661e40a6fe3e, type: 3}
+      objectReference: {fileID: 21300000, guid: bac27017ac8d57c41948fb77ab6efdc2, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -4147,14 +4150,17 @@ PrefabInstance:
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 682c8ae72cb08b147b87661e40a6fe3e, type: 3}
+      objectReference: {fileID: 21300000, guid: bac27017ac8d57c41948fb77ab6efdc2, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Tahu & Tempe
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Tahu & Tempe
+      value: Tempe adalah makanan yang dibuat dari kedelai yang difermentasi. Tahu
+        adalah makanan yang dibuat dari endapan biji kedelai yang dikoagulasi. Per
+        100 g BDD, tempe dan tahu memiliki kandungan protein sebesar kurang lebih
+        15 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -4299,14 +4305,17 @@ PrefabInstance:
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 290c256060900bb43a9a9983cd9b2a21, type: 3}
+      objectReference: {fileID: 21300000, guid: cdf6187b2ad26084383c905454cc1313, type: 3}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Ikan Tuna
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Tuna
+      value: Tuna merupakan ikan air laut yang berasal dari bangsa Thunnini. Daging
+        ikan tuna memiliki warna merah muda sampai merah tua karena ototnya yang
+        memiliki banyak myoglobin. Per 100 g BDD, tuna memiliki kandungan protein
+        sebesar 28 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -4335,7 +4344,7 @@ PrefabInstance:
     - target: {fileID: 7812102984540493923, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 290c256060900bb43a9a9983cd9b2a21, type: 3}
+      objectReference: {fileID: 21300000, guid: cdf6187b2ad26084383c905454cc1313, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -4423,14 +4432,15 @@ PrefabInstance:
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 8e8377c219b13d146a6f767f2bd29767, type: 3}
+      objectReference: {fileID: 21300000, guid: 17751faf0db0a6e42b0d1d49f2774b50, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Daging Ayam
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: ayam
+      value: Ayam adalah jenis unggas yang paling umum dikonsumsi di dunia. Per 100
+        g BDD, daging ayam memiliki kandungan protein sebesar 18.20 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -4475,7 +4485,7 @@ PrefabInstance:
     - target: {fileID: 7876486954249826550, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8e8377c219b13d146a6f767f2bd29767, type: 3}
+      objectReference: {fileID: 21300000, guid: 17751faf0db0a6e42b0d1d49f2774b50, type: 3}
     - target: {fileID: 8250712498968142005, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: FoodButton (2)
@@ -4898,14 +4908,16 @@ PrefabInstance:
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 73950053e4deea34da2994ad9daadf53, type: 3}
+      objectReference: {fileID: 21300000, guid: c8e5d86c371915e4f8d6cf470aa96185, type: 3}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Bayam Jepang
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Bayam Jepang
+      value: Bayam adalah sayuran yang berasal dari genus Spinacia. Bagian bayam
+        yang dikonsumsi adalah daunnya. Bayam memiliki kandungan kalsium sebesar
+        99 mg.
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -4934,7 +4946,7 @@ PrefabInstance:
     - target: {fileID: 5492555528544055029, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 73950053e4deea34da2994ad9daadf53, type: 3}
+      objectReference: {fileID: 21300000, guid: c8e5d86c371915e4f8d6cf470aa96185, type: 3}
     - target: {fileID: 5780361924263769884, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Kalsium
@@ -4946,7 +4958,7 @@ PrefabInstance:
     - target: {fileID: 5784111151460401098, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e6630f6bbc972e14898a58bde601d13e, type: 3}
+      objectReference: {fileID: 21300000, guid: 9d7b1ae272aa01c4a8e062a1faba41a3, type: 3}
     - target: {fileID: 5784111151504912943, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5038,14 +5050,16 @@ PrefabInstance:
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: e6630f6bbc972e14898a58bde601d13e, type: 3}
+      objectReference: {fileID: 21300000, guid: 9d7b1ae272aa01c4a8e062a1faba41a3, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Susu Sapi
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Susu Sapi
+      value: Susu adalah produk hewani yang didapatkan dari memerah hewan ternak.
+        Susu, umumnya susu sapi, biasa diolah menjadi mentega, yogurt, es krim, keju,
+        dan lain-lain. Susu memiliki kandungan kalsium sebesar 125 mg.
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -5190,14 +5204,16 @@ PrefabInstance:
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: abf202319d92364459409dd2e6b83692, type: 3}
+      objectReference: {fileID: 21300000, guid: dbbb7864a42a92b44909cc71034c9078, type: 3}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Keju
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Keju
+      value: Keju merupakan salah satu produk olahan dari susu, biasanya susu sapi,
+        kerbau, kambing, atau domba, melalui proses pengentalan atau koagulasi. Keju
+        memiliki kandungan kalsium sebesar 721 mg.
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -5226,7 +5242,7 @@ PrefabInstance:
     - target: {fileID: 7812102984540493923, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: abf202319d92364459409dd2e6b83692, type: 3}
+      objectReference: {fileID: 21300000, guid: dbbb7864a42a92b44909cc71034c9078, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -5314,14 +5330,16 @@ PrefabInstance:
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 7a7d6bd29bf3f2149aaed99d9df2be44, type: 3}
+      objectReference: {fileID: 21300000, guid: f9a730c3e3a76e344b83338daccc3063, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Kacang Almond
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Kacang Almond
+      value: Pohon almond adalah tanaman yang diklasifikasikan sebagai spesies Prunus
+        amygdalus. Pohon almon berasal dari Iran dan negara sekitarnya, termasuk
+        Levant. Kacang almon memiliki kandungan kalsium sebesar 264 mg.
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -5370,7 +5388,7 @@ PrefabInstance:
     - target: {fileID: 7876486954249826550, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7a7d6bd29bf3f2149aaed99d9df2be44, type: 3}
+      objectReference: {fileID: 21300000, guid: f9a730c3e3a76e344b83338daccc3063, type: 3}
     - target: {fileID: 8250712498968142005, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Sarden
@@ -5478,14 +5496,16 @@ PrefabInstance:
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 2835ab32a04b5374d9c84fbf5c773d48, type: 3}
+      objectReference: {fileID: 21300000, guid: 61f5f307006e1db49b1a5dcf5b6bbd9d, type: 3}
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Sarden
       objectReference: {fileID: 0}
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Sarden
+      value: Sarden merupakan sumber asam lemak omega-3. Sarden umumnya disajikan
+        di dalam kaleng, namun dapat juga dimakan dengan cara dipanggang atau diasapkan
+        ketika masih segar. Sarden memiliki kandungan kalsium sebesar 95 mg.
       objectReference: {fileID: 0}
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -5514,7 +5534,7 @@ PrefabInstance:
     - target: {fileID: 8250712498989198509, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2835ab32a04b5374d9c84fbf5c773d48, type: 3}
+      objectReference: {fileID: 21300000, guid: 61f5f307006e1db49b1a5dcf5b6bbd9d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
 --- !u!224 &337114161488600900 stripped
@@ -5793,14 +5813,17 @@ PrefabInstance:
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: c362fddced4726f41a7a21a1f14d6954, type: 3}
+      objectReference: {fileID: 21300000, guid: ca0f957b24e2e1f4583f01e8e65bd3a9, type: 3}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Jagung
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Jagung
+      value: Jagung merupakan salah satu tanaman pangan terpenting di dunia selain
+        gandum dan padi. Jagung pertama kali dikembangbiakkan oleh orang asli Meksiko
+        Utara 10.000 tahun yang lalu. Per 100 g BDD, jagung memiliki kandungan karbohidrat
+        sebesar 30.30 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -5825,7 +5848,7 @@ PrefabInstance:
     - target: {fileID: 5492555528544055029, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 56024b896e7849040a443112c0fe5a25, type: 3}
+      objectReference: {fileID: 21300000, guid: ca0f957b24e2e1f4583f01e8e65bd3a9, type: 3}
     - target: {fileID: 5780361924263769884, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Karbohidrat
@@ -5837,7 +5860,7 @@ PrefabInstance:
     - target: {fileID: 5784111151460401098, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 65088aa43ed795e49985ffe67efe98a0, type: 3}
+      objectReference: {fileID: 21300000, guid: a9634586b39b08847883ce72718fe811, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -5925,14 +5948,15 @@ PrefabInstance:
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: f315263b4df6a4649adbc6ea75e95f31, type: 3}
+      objectReference: {fileID: 21300000, guid: a9634586b39b08847883ce72718fe811, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Singkong
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Singkong
+      value: Singkong adalah tanaman yang memiliki asal dari Amerika Selatan. Per
+        100 g BDD, singkong memiliki kandungan karbohidrat sebesar 36.80 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6077,14 +6101,15 @@ PrefabInstance:
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 331a3a4566ee89f47b1427141e4df376, type: 3}
+      objectReference: {fileID: 21300000, guid: cc566e514fe68f245afedca05d4f9461, type: 3}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Roti
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Bread
+      value: Roti merupakan makanan yang dibuat dengan bahan dasar utama tepung terigu
+        dan air. Per 100 g BDD, roti memiliki kandungan karbohidrat sebesar 49 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6113,7 +6138,7 @@ PrefabInstance:
     - target: {fileID: 7812102984540493923, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 331a3a4566ee89f47b1427141e4df376, type: 3}
+      objectReference: {fileID: 21300000, guid: cc566e514fe68f245afedca05d4f9461, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -6201,14 +6226,15 @@ PrefabInstance:
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 56024b896e7849040a443112c0fe5a25, type: 3}
+      objectReference: {fileID: 21300000, guid: fe8b446a25861674eb03f71a3b5d03fb, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Nasi Putih
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Nasi
+      value: Nasi merupakan beras yang telah direbus dan ditanak. Per 100 g BDD,
+        nasi memiliki kandungan karbohidrat sebesar 39.80 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6253,7 +6279,7 @@ PrefabInstance:
     - target: {fileID: 7876486954249826550, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c362fddced4726f41a7a21a1f14d6954, type: 3}
+      objectReference: {fileID: 21300000, guid: fe8b446a25861674eb03f71a3b5d03fb, type: 3}
     - target: {fileID: 8250712498968142005, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Kentang
@@ -6361,14 +6387,16 @@ PrefabInstance:
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 65088aa43ed795e49985ffe67efe98a0, type: 3}
+      objectReference: {fileID: 21300000, guid: 63cec9d7cd4c5a848964fcfad044d497, type: 3}
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Kentang
       objectReference: {fileID: 0}
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Kentang
+      value: Kentang adalah salah satu tanaman umbi-umbian dan memiliki asal dari
+        Amerika Selatan. Per 100 g BDD, kentang memiliki kandungan karbohidrat sebesar
+        17.72 g.
       objectReference: {fileID: 0}
     - target: {fileID: 8250712498968142007, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6393,7 +6421,7 @@ PrefabInstance:
     - target: {fileID: 8250712498989198509, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f315263b4df6a4649adbc6ea75e95f31, type: 3}
+      objectReference: {fileID: 21300000, guid: 63cec9d7cd4c5a848964fcfad044d497, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
 --- !u!1 &3463019219154098118 stripped
@@ -6672,14 +6700,16 @@ PrefabInstance:
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: add8ec65296d2914999de2f14fc3cdd3, type: 3}
+      objectReference: {fileID: 21300000, guid: 7aca7657f7b17c448895caaddee8214b, type: 3}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Jeruk
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Jeruk
+      value: Jeruk merupakan buah yang berasal dari genus Citrus. Jeruk dapat dikonsumsi
+        secara langsung atau diolah menjadi jus. Per 100 g, jeruk memiliki kandungan
+        Vitamin C sebesar 52.2 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6704,7 +6734,7 @@ PrefabInstance:
     - target: {fileID: 5492555528544055029, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: add8ec65296d2914999de2f14fc3cdd3, type: 3}
+      objectReference: {fileID: 21300000, guid: 7aca7657f7b17c448895caaddee8214b, type: 3}
     - target: {fileID: 5780361924263769884, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Vitamin C
@@ -6716,7 +6746,7 @@ PrefabInstance:
     - target: {fileID: 5784111151460401098, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 10f695576f025b643a5a44702dee2a87, type: 3}
+      objectReference: {fileID: 21300000, guid: 20c5ac80e23b8a44d9da1910543d6add, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -6804,14 +6834,16 @@ PrefabInstance:
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 10f695576f025b643a5a44702dee2a87, type: 3}
+      objectReference: {fileID: 21300000, guid: 20c5ac80e23b8a44d9da1910543d6add, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Brokoli
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Brokoli
+      value: Brokoli adalah tanaman yang diklasifikasikan dengan spesies Brassica
+        oleracea. Umumnya brokoli dikonsumsi dengan merebus atau mengukusnya terlebih
+        dahulu. Per 100 g, brokoli memiliki kandungan Vitamin C sebesar 89.2 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6956,14 +6988,16 @@ PrefabInstance:
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: aa1a2341c8bdfb24390acb13654f667b, type: 3}
+      objectReference: {fileID: 21300000, guid: 7a6e598d2cf2f374d82fe6325d6e9b4e, type: 3}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Jambu Biji
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Jambu Biji
+      value: Jamu biji adalah buah tropis yang berasal dari Amerika Tengah dan Amerika
+        Selatan. Per 100 g, jambu biji memiliki kandungan Vitamin C sebesar 228,3
+        g.
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -6989,10 +7023,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jambu Biji
       objectReference: {fileID: 0}
+    - target: {fileID: 7812102984513443206, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9243bdedcc0d87e4087b5f751f1354fa, type: 3}
     - target: {fileID: 7812102984540493923, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: aa1a2341c8bdfb24390acb13654f667b, type: 3}
+      objectReference: {fileID: 21300000, guid: 7a6e598d2cf2f374d82fe6325d6e9b4e, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -7080,14 +7118,15 @@ PrefabInstance:
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: d2e5f78b443467440a62c3d6e6a711fa, type: 3}
+      objectReference: {fileID: 21300000, guid: b8f67e28c65306a47aed359961888e91, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Kiwi
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Kiwi
+      value: Kiwi merupakan buah beri yang berasal dari Shaanxi, Tiongkok. Per 100
+        g, kiwi memiliki kandungan Vitamin C sebesar 92 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -7129,10 +7168,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kiwi
       objectReference: {fileID: 0}
+    - target: {fileID: 7876486954231037203, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9243bdedcc0d87e4087b5f751f1354fa, type: 3}
     - target: {fileID: 7876486954249826550, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d2e5f78b443467440a62c3d6e6a711fa, type: 3}
+      objectReference: {fileID: 21300000, guid: b8f67e28c65306a47aed359961888e91, type: 3}
     - target: {fileID: 8250712498968142005, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: FoodButton (2)
@@ -7575,14 +7618,15 @@ PrefabInstance:
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: c6e66881997fb824ea86b958a40f5c30, type: 3}
+      objectReference: {fileID: 21300000, guid: 59dad09f06791b241b9005b6e16b9508, type: 3}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Apel
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Apel
+      value: Apel merupakan buah yang berasal dari genus Malus. Pohon apel berasal
+        dari Asia Tengah. Per 100 g, apel memiliki kandungan serat sebesar 2.4 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5492555528494555887, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -7607,7 +7651,7 @@ PrefabInstance:
     - target: {fileID: 5492555528544055029, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c6e66881997fb824ea86b958a40f5c30, type: 3}
+      objectReference: {fileID: 21300000, guid: 59dad09f06791b241b9005b6e16b9508, type: 3}
     - target: {fileID: 5780361924263769884, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: Serat
@@ -7619,7 +7663,7 @@ PrefabInstance:
     - target: {fileID: 5784111151460401098, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d2e5f78b443467440a62c3d6e6a711fa, type: 3}
+      objectReference: {fileID: 21300000, guid: a3df340276bc5454da83898d43360378, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -7707,14 +7751,16 @@ PrefabInstance:
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: d2e5f78b443467440a62c3d6e6a711fa, type: 3}
+      objectReference: {fileID: 21300000, guid: a3df340276bc5454da83898d43360378, type: 3}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Stroberi
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Stroberi
+      value: Stroberi adalah buah yang berasal dari genus Fragaria. Bentuk olahan
+        stroberi yang umum adalah selai, jus, pie, es krim, dan lain-lain. Per 100
+        g, stroberi memiliki kandungan serat sebesar 2 g.
       objectReference: {fileID: 0}
     - target: {fileID: 5784111151504913360, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -7859,14 +7905,16 @@ PrefabInstance:
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: c6e66881997fb824ea86b958a40f5c30, type: 3}
+      objectReference: {fileID: 21300000, guid: bef078beb60d17145a18d939d85eab39, type: 3}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Buncis
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Buncis
+      value: Buncis adalah tanaman kacang-kacangan yang dipercayai berasal dari Amerika
+        Tengah dan Amerika Selatan. Per 100 g, buncis memiliki kandungan serat sebesar
+        3.4 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7812102984513442937, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -7892,10 +7940,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buncis
       objectReference: {fileID: 0}
+    - target: {fileID: 7812102984513443206, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9243bdedcc0d87e4087b5f751f1354fa, type: 3}
     - target: {fileID: 7812102984540493923, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: aa1a2341c8bdfb24390acb13654f667b, type: 3}
+      objectReference: {fileID: 21300000, guid: ce6eb7ef07a7549489497cb24d534b55, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -7983,14 +8035,16 @@ PrefabInstance:
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: e79e29da863641646be399ed39d9429a, type: 3}
+      objectReference: {fileID: 21300000, guid: 7f16222607add7741bdf09a2bb948102, type: 3}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Pisang
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Pisang
+      value: Pisang adalah buah yang berasal dari genus Musa. Pisang adalah buah
+        yang dipanen pada musim apa saja. Pisang Per 100 g, pisang memiliki kandungan
+        serat sebesar 2.6 g.
       objectReference: {fileID: 0}
     - target: {fileID: 7876486954231037164, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
@@ -8035,7 +8089,7 @@ PrefabInstance:
     - target: {fileID: 7876486954249826550, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e79e29da863641646be399ed39d9429a, type: 3}
+      objectReference: {fileID: 21300000, guid: 7f16222607add7741bdf09a2bb948102, type: 3}
     - target: {fileID: 8250712498968142005, guid: 87904af2a5871284f95970ac23c8dec5, type: 3}
       propertyPath: m_Name
       value: FoodButton (2)

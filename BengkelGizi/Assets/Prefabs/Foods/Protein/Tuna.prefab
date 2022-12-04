@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1622187666165098942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.45588, y: 0.3376322, z: -0.0018880037}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.2014174, y: 0.2014174, z: 0.2014174}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6787277186158114437}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 290c256060900bb43a9a9983cd9b2a21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cdf6187b2ad26084383c905454cc1313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 8521446870580444056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.45588, y: -0.032367796, z: -0.0018880037}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.2014174, y: 0.2014174, z: 0.2014174}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6787277186158114437}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 290c256060900bb43a9a9983cd9b2a21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cdf6187b2ad26084383c905454cc1313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,18 +186,30 @@ PrefabInstance:
     - target: {fileID: 3488138572074856546, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 290c256060900bb43a9a9983cd9b2a21, type: 3}
+      objectReference: {fileID: 21300000, guid: cdf6187b2ad26084383c905454cc1313, type: 3}
     - target: {fileID: 3488138572074856546, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4775028679226460631, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.20141739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775028679226460631, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.20141739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775028679226460631, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.20141739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775028679226460631, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4775028679226460631, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03999999
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 5512173027974234573, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_RootOrder
@@ -245,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6514744323992018831, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}
       propertyPath: m_Name
-      value: Salmon
+      value: Tuna
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1976c6fe3b6011e4abec14adc898afa5, type: 3}

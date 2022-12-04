@@ -139,6 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &96656558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4951606563079114763, guid: a1b7187eaf15fe24a9520a687ad4984f, type: 3}
+  m_PrefabInstance: {fileID: 1069876129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &101105761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,7 +2699,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 96656558}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2738,7 +2743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b4e0703fce89f04eac78a4403462869, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c97ac4ad59b72d44bb65e4f95d9371ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
