@@ -19,6 +19,7 @@ public class Customer : MonoBehaviour
     [SerializeField] float customerPatience = 25f;
     [SerializeField, Range(1, 5)] int minTotalOrder = 1;
     [SerializeField, Range(1, 5)] int maxTotalOrder = 3;
+    [SerializeField, Range(1, 3)] int maxOrderList = 2;
 
     [Header("Nutrition Values")]
     [SerializeField] Nutrition[] nutritionOrderList;
@@ -27,13 +28,13 @@ public class Customer : MonoBehaviour
     [SerializeField, Range(1, 5)] int maxKarboValue = 5;
     [Header("Protein")]
     [SerializeField, Range(1, 5)] int minProteinValue = 1;
-    [SerializeField, Range(1, 5)] int maxProteinValue = 5;
+    [SerializeField, Range(1, 5)] int maxProteinValue = 4;
     [Header("Serat")]
     [SerializeField, Range(1, 5)] int minSeratValue = 1;
-    [SerializeField, Range(1, 5)] int maxSeratValue = 5;
+    [SerializeField, Range(1, 5)] int maxSeratValue = 4;
     [Header("Vitamin")]
     [SerializeField, Range(1, 5)] int minVitaminValue = 1;
-    [SerializeField, Range(1, 5)] int maxVitaminValue = 5;
+    [SerializeField, Range(1, 5)] int maxVitaminValue = 4;
     [Header("Kalsium")]
     [SerializeField, Range(1, 5)] int minKalsiumValue = 1;
     [SerializeField, Range(1, 5)] int maxKalsiumValue = 5;
@@ -41,12 +42,13 @@ public class Customer : MonoBehaviour
     FoodTray foodTray;
     Nutrition nutrition;
     bool isWaitingFood = false;
-    bool isKarboOrdered, freePlate = false;
+    bool isKarboOrdered = false;
+    bool freePlate = true;
     int totalOrder;
     int i_heart, j_heart;
     string serveFeedback;
     Coroutine waitForOrderRoutine = null;
-    // List<Nutrition> nutritionList = new List<Nutrition>();
+    List<Nutrition> nutritionList = new List<Nutrition>();
     int protein_serat, vitamin_kalsium = 0;
 
 
@@ -86,23 +88,52 @@ public class Customer : MonoBehaviour
     {
         totalOrder = Random.Range(minTotalOrder, maxTotalOrder + 1);
 
+        int loop = 25;
+
         while (totalOrder > 0)
         {
-            nutrition = !isKarboOrdered ? Nutrition.Karbohidrat : nutritionOrderList[Random.Range(0, nutritionOrderList.Length)];
-
-            if (IsPlateFull(nutrition))
+            loop--;
+            if (loop < 1)
             {
+                Debug.Log("Too much loop (Breaking Loop)");
+                break;
+            }
+
+            nutrition = !isKarboOrdered ? Nutrition.Karbohidrat : nutritionOrderList[Random.Range(1, nutritionOrderList.Length)];
+
+            if (
+                (((nutritionList.Contains(Nutrition.Protein) && nutritionList.Contains(Nutrition.Serat)) && protein_serat >= 2) ||
+                ((nutritionList.Contains(Nutrition.Vitamin) && nutritionList.Contains(Nutrition.Kalsium)) && vitamin_kalsium >= 2))
+                && !freePlate
+            )
+            {
+                Debug.Log("Jenis Nutrsi full (Breaking Loop)");
+                break;
+            }
+
+            // Debug.Log(!nutritionList.Contains(nutrition) && nutritionList.Count == 3);
+            // Debug.Log(nutrition);
+
+            // if (IsPlateFull(nutrition))
+            if (IsPlateFull(nutrition) || (!nutritionList.Contains(nutrition) && nutritionList.Count >= maxOrderList))
+            {
+                // Debug.Log("Skip");
                 continue;
             }
 
-            // if (!nutritionList.Contains(nutrition))
+
             if (((protein_serat == 2 && (nutrition == Nutrition.Protein || nutrition == Nutrition.Serat))
                 || (vitamin_kalsium == 2 && (nutrition == Nutrition.Vitamin || nutrition == Nutrition.Kalsium)))
             && freePlate)
             {
+                Debug.Log("Free Plate Used");
                 freePlate = false;
             }
-            // nutritionList.Add(nutrition);
+
+            if (!nutritionList.Contains(nutrition))
+                nutritionList.Add(nutrition);
+
+            // Debug.Log(nutritionList.Count);
 
             if (nutrition == Nutrition.Karbohidrat)
                 isKarboOrdered = true;
@@ -125,11 +156,20 @@ public class Customer : MonoBehaviour
             );
 
             var text = orderTextParent.GetChild((int)nutrition);
-            text.GetComponent<TMP_Text>().text += CustOrder[nutrition].ToString();
+            var tmpText = text.GetComponent<TMP_Text>();
+
+            tmpText.text = tmpText.text.Split(' ')[0] + " " + custOrder[nutrition];
+
+            text.GetComponent<TMP_Text>().text.Split(' ')[1] = CustOrder[nutrition].ToString();
             text.gameObject.SetActive(true);
 
             totalOrder--;
 
+            if (maxOrderList == 1 && maxTotalOrder > 1)
+            {
+                // Debug.Log("Cuman 1 Jenis woi");
+                break;
+            }
         }
     }
 
