@@ -124,7 +124,7 @@ public class FoodTray : MonoBehaviour
     {
         isServing = false;
         ChangeFoodtrayColor();
-        // audioManager.PlayResetPlateSFX();
+        audioManager.PlayResetPlateSFX();
 
         plateValue[Nutrition.Karbohidrat] = 0;
         plateValue[Nutrition.Protein] = 0;
