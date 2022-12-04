@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
 
     private void Victory()
     {
+        IsGamePaused = true;
         Victory_Panel.SetActive(true);
         //audioManager.PlayWinSFX();
         if (heart == 5)
@@ -166,6 +167,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        IsGamePaused = true;
         NextLevel_Button.interactable = false;
         Victory_Panel.SetActive(true);
         //audioManager.PlayLoseSFX();
