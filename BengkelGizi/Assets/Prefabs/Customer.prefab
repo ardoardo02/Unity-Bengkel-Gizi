@@ -364,6 +364,7 @@ MonoBehaviour:
   customerPatience: 30
   minTotalOrder: 1
   maxTotalOrder: 3
+  maxOrderList: 2
   nutritionOrderList: 00000000
   minKarboValue: 1
   maxKarboValue: 5
@@ -384,7 +385,7 @@ AudioSource:
   m_GameObject: {fileID: 7989556844656676373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5262986505199311082, guid: 3e1b7bac36fa8b247b781671a91916df, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5aac079898234fe45b5a9610561fbd54, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
