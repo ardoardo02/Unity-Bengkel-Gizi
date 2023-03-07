@@ -28,9 +28,13 @@ public class FoodTray : MonoBehaviour
     int karbo, protein_serat, vitamin_kalsium = 0;
     bool freePlate = true;
     bool isServing = false;
+    bool isSelectPowerUp = false;
+    PowerUp powerUpSelected;
     Transform placePoint;
 
     public bool IsServing { get => isServing; }
+    public bool IsSelectPowerUp { set => isSelectPowerUp = value; get => isSelectPowerUp;}
+    public PowerUp PowerUpSelected { set => powerUpSelected = value; get => powerUpSelected; }
     public List<Food> Foods = new List<Food>();
 
     public void AddFood(Food food, Transform foodRender)
@@ -164,6 +168,21 @@ public class FoodTray : MonoBehaviour
         return "Correct";
     }
 
+    public string ServePowerUp(Customer cus)
+    {
+        if(!isSelectPowerUp)
+            return "Not Serving";
+        
+        if(powerUpSelected.PowerUpType != PowerUpType.SegoBerkat)
+            return "Wrong Power Up";
+        
+        isSelectPowerUp = false;
+        powerUpSelected.PowerUpServed();
+        powerUpSelected = null;
+
+        return "Correct";
+    }
+
     private void ChangeFoodsColor(Color color, bool isMaterial)
     {
         for (int i = 0; i < foodsPlace.childCount; i++)
@@ -191,7 +210,7 @@ public class FoodTray : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.IsGamePaused)
+        if (GameManager.Instance.IsGamePaused || isSelectPowerUp)
             return;
 
         foodtrayRender.material.color = Color.white;
@@ -214,7 +233,7 @@ public class FoodTray : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (GameManager.Instance.IsGamePaused)
+        if (GameManager.Instance.IsGamePaused || isSelectPowerUp)
             return;
 
         foodtrayRender.material.color = new Color(0.9f, 0.9f, 0.9f);
@@ -223,7 +242,7 @@ public class FoodTray : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (GameManager.Instance.IsGamePaused)
+        if (GameManager.Instance.IsGamePaused || isSelectPowerUp)
             return;
 
         foodtrayRender.material.color = new Color(0.9f, 0.9f, 0.9f);

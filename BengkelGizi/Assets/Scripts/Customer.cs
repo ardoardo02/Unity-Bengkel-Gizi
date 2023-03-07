@@ -323,9 +323,23 @@ public class Customer : MonoBehaviour
         if (GameManager.Instance.IsGamePaused)
             return;
 
-        if (isWaitingFood)
+        if(foodTray.IsSelectPowerUp && isWaitingFood)
+        {
+            serveFeedback = foodTray.ServePowerUp(this);
+            print(serveFeedback);
+            
+            if(serveFeedback == "Not Serving")
+                return;
+            
+            if(serveFeedback == "Correct")
+            {
+                StopCoroutine(waitForOrderRoutine);
+                StartCoroutine(Eat());
+            }
+        }else if (isWaitingFood)
         {
             serveFeedback = foodTray.ServeFood(this);
+            print(serveFeedback);
 
             if (serveFeedback == "Not Serving")
                 return;
@@ -354,7 +368,7 @@ public class Customer : MonoBehaviour
         if (GameManager.Instance.IsGamePaused)
             return;
 
-        if (!foodTray.IsServing || !isWaitingFood)
+        if ((!foodTray.IsServing && !foodTray.IsSelectPowerUp) || !isWaitingFood)
             return;
 
         orderBox.material.color = new Color(0.8f, 0.8f, 0.8f);
